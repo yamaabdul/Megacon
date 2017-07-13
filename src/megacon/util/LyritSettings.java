@@ -37,6 +37,7 @@ public class LyritSettings {
 		}
 	}
 	
+	
 	public static StringBuffer showHeader(){
 		StringBuffer header = new StringBuffer("");
 		header.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"> ");
@@ -57,10 +58,36 @@ public class LyritSettings {
 		header.append("\n");
 		header.append("<link rel='shortcut icon' href='favicon.ico' /> ");
 		header.append("\n");
-		header.append("</head><body class=\"login\"> ");
+		header.append("<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></script> ");
+		header.append("\n");
+		header.append("<script type=\"text/javascript\" src=\"script/animatedcollapse.js\"> ");
+		header.append("\n");
+		header.append("</script> ");
+		header.append("\n");
+		header.append("<script type=\"text/javascript\"> ");
+		header.append("\n");
+		header.append("animatedcollapse.addDiv('cat', 'fade=0,speed=400,group=pets') ");
+		header.append("\n");
+		header.append("animatedcollapse.ontoggle=function($, divobj, state){ //fires each time a DIV is expanded/contracted ");
+		header.append("\n");
+		header.append("	//$: Access to jQuery ");
+		header.append("\n");
+		header.append("	//divobj: DOM reference to DIV being expanded/ collapsed. Use \"divobj.id\" to get its ID ");
+		header.append("\n");
+		header.append("	//state: \"block\" or \"none\", depending on state ");
+		header.append("\n");
+		header.append("} ");
+		header.append("\n");
+		header.append("\n");
+		header.append("animatedcollapse.init() ");
+		header.append("\n");
+		header.append("</script> ");
+		header.append("\n");
+		header.append("</head> ");
+		header.append("\n");
+		header.append("<body class=\"login\"> ");
 		header.append("\n");
 
 		return header;
 	}
-
 }

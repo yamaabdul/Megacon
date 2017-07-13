@@ -1,0 +1,111 @@
+@CHARSET "ISO-8859-1";
+ #white-background{
+                display: none;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                background-color: #fefefe;
+                opacity: 0.7;
+                z-index: 9999;
+            }
+            
+            #dlgbox{
+                /*initially dialog box is hidden*/
+                display: none;
+                position: fixed;
+                width: 480px;
+                z-index: 9999;
+                border-radius: 10px;
+                background-color: #7c7d7e;
+            }
+            
+            #dlg-header{
+                background-color: #6d84b4;
+                color: white;
+                font-size: 20px;
+                padding: 10px;
+                margin: 10px 10px 0px 10px;
+            }
+            
+            #dlg-body{
+                background-color: white;
+                color: black;
+                font-size: 14px;
+                padding: 10px;
+                margin: 0px 10px 0px 10px;
+            }
+            
+            #dlg-footer{
+                background-color: #f2f2f2;
+                text-align: right;
+                padding: 10px;
+                margin: 0px 10px 10px 10px;
+            }
+            
+            #dlg-footer button{
+                background-color: #6d84b4;
+                color: white;
+                padding: 5px;
+                border: 0px;
+            }
+            #dlg-img{
+                float: left;
+            }
+ dialogbox als niet gelukt
+ 
+   #red-background{
+                display: none;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                background-color: #ff8080;
+                opacity: 0.7;
+                z-index: 9999;
+            }
+            
+            #dlgbbox{
+                /*initially dialog box is hidden*/
+                display: none;
+                position: fixed;
+                width: 480px;
+                z-index: 9999;
+                border-radius: 10px;
+                background-color: #7c7d7e;
+            }
+            
+            #dlgb-header{
+                background-color: #ff0000;
+                color: white;
+                font-size: 20px;
+                padding: 10px;
+                margin: 10px 10px 0px 10px;
+            }
+            
+            #dlgb-body{
+                background-color: white;
+                color: black;
+                font-size: 14px;
+                padding: 10px;
+                margin: 0px 10px 0px 10px;
+            }
+            
+            #dlg-footer{
+                background-color: #f2f2f2;
+                text-align: right;
+                padding: 10px;
+                margin: 0px 10px 10px 10px;
+            }
+            
+            #dlg-footer button{
+                background-color: #6d84b4;
+                color: white;
+                padding: 5px;
+                border: 0px;
+            }
+            #dlgb-img{
+                float: left;
+            }

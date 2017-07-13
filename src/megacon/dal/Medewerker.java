@@ -9,6 +9,14 @@ public class Medewerker {
 	private int access_level;
 	private boolean isActief   = false;
 	private boolean a_validated   = false;
+	/**
+	 * User access levels
+	*/
+	public String[] adminRole = new String[3];
+	public static final int userView    = 0; 
+	public static final int userEdit    = 1; 
+	public static final int adminSystem = 2;
+	
 	
 	public Medewerker(int medewerker_id, boolean geslacht, String medewerkerNaam, String email, String password,
 			int access_level, boolean isActief) {
@@ -22,7 +30,11 @@ public class Medewerker {
 		this.isActief = isActief;
 	}
 	
-	public Medewerker(){
+	
+	public Medewerker (){
+		adminRole[userView]    = "Manager -mag rapportages bekijken";
+		adminRole[userEdit]    = "Gebruiker van het systeem";
+		adminRole[adminSystem] = "Beheerder - mag alles";
 		
 	}
 	
