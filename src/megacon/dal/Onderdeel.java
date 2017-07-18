@@ -4,7 +4,7 @@ public class Onderdeel {
 	
 	private int onderdeel_id;
 	private int component_id;
-	private int staandardOnderdeel_id;
+	private int standardOnderdeel_id;
 	private String onderdeelnaam;
 	private String positie;
 	private int aantal;
@@ -13,12 +13,12 @@ public class Onderdeel {
 	
 	
 		
-	public Onderdeel(int onderdeel_id, int component_id, int staandardOnderdeel_id, String onderdeelnaam,
+	public Onderdeel(int onderdeel_id, int component_id, int standardOnderdeel_id, String onderdeelnaam,
 			String positie, int aantal, boolean isActief, String notitie) {
 		super();
 		this.onderdeel_id = onderdeel_id;
 		this.component_id = component_id;
-		this.staandardOnderdeel_id = staandardOnderdeel_id;
+		this.standardOnderdeel_id = standardOnderdeel_id;
 		this.onderdeelnaam = onderdeelnaam;
 		this.positie = positie;
 		this.aantal = aantal;
@@ -42,11 +42,11 @@ public class Onderdeel {
 	public void setComponent_id(int component_id) {
 		this.component_id = component_id;
 	}
-	public int getStaandardOnderdeel_id() {
-		return staandardOnderdeel_id;
+	public int getStandardOnderdeel_id() {
+		return standardOnderdeel_id;
 	}
-	public void setStaandardOnderdeel_id(int staandardOnderdeel_id) {
-		this.staandardOnderdeel_id = staandardOnderdeel_id;
+	public void setStandardOnderdeel_id(int standardOnderdeel_id) {
+		this.standardOnderdeel_id = standardOnderdeel_id;
 	}
 	public String getOnderdeelnaam() {
 		return onderdeelnaam;

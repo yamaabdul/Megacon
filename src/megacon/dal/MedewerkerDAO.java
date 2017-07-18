@@ -12,8 +12,7 @@ public class MedewerkerDAO {
 
 	 
 	public static final String TABLENAME = "Medewerker";
-	public static final int blockKlantAfterDays = 75; 
-
+	
 	public Medewerker getMedewerker(int id_medewerker) {
 		StringBuffer sqlStatement = new StringBuffer("");
 		sqlStatement.append("select * from ");

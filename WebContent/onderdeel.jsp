@@ -39,11 +39,10 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 
 animatedcollapse.addDiv('div0', 'fade=1,speed=200')
 animatedcollapse.addDiv('standaardond', 'fade=1,speed=200')
-animatedcollapse.addDiv('dimensie', 'fade=1,speed=200') 
-animatedcollapse.addDiv('standard_dimensie', 'fade=1,speed=200') 
-animatedcollapse.addDiv('romp', 'fade=1,speed=200') 
-animatedcollapse.addDiv('materiaal', 'fade=1,speed=200') 
-animatedcollapse.addDiv('materiaalsoort', 'fade=1,speed=200') 
+animatedcollapse.addDiv('dimensie', 'fade=1,speed=200,hide=1') 
+animatedcollapse.addDiv('standard_dimensie', 'fade=1,speed=200,hide=1') 
+animatedcollapse.addDiv('romp', 'fade=1,speed=200,hide=1') 
+animatedcollapse.addDiv('materiaalsoort', 'fade=1,speed=200,hide=1') 
 
 animatedcollapse.ontoggle=function($, divobj, state){ //fires each time a DIV is expanded/contracted 
 	//$: Access to jQuery 
@@ -59,7 +58,6 @@ function Aan(){
 	animatedcollapse.show('romp');
 	animatedcollapse.show('dimensie');
 	animatedcollapse.show('standard_dimensie');
-	animatedcollapse.show('materiaal');
 	animatedcollapse.show('materiaalsoort');
 	initStandardonderdeel();
 }
@@ -96,13 +94,9 @@ wagenAan.append(" }"+ eol); */
 </head>
 
 <body>
-  <h3>Onderdeel</h3><p><br><br>
-	    <form method=post action=OnderdeelServlet name=div0>
+  <h3>Onderdeel toevoeging</h3><p><br><br>
+	    <form method=post action=editOnderdeel.jsp name=div0>
 	    <table>
-	    <tr><td></td><td><input name=onderdeel_id maxlength=6 type=text hidden maxlength=30 size=30 value='1'></td></tr>
-	  <!--   <tr><td>Component ID:</td><td><input name=component_id maxlength=6 type=text maxlength=30 size=30 value=''></td></tr>
-	    <tr><td>Standaardonderdeel ID:</td><td><input name=staandardOnderdeel_id maxlength=6 type=text size=30 value=''></td></tr>
-	     -->
 	    <tr>
 				<td valign=top>Standaard onderdeel configureren</td>
 				<td>
@@ -110,7 +104,7 @@ wagenAan.append(" }"+ eol); */
 					<div id=div0>
 						<div class="centerwindow2">
 							<select name=standaardond onchange="Aan();">
-								<option value=0>ROMP</option>
+								<option value=0>--maak keuze--</option>
 								<%
 								
 								for(Iterator<Standaard_onderdeel> it = stnOnderdelen.iterator();it.hasNext();){
@@ -125,10 +119,10 @@ wagenAan.append(" }"+ eol); */
 							
 						<div id="standard_dimensie" style="width: 700px;">
 						Aantal<input name=AH type=number min="1" style="width:30px;" maxlength=10 value='1'>
-						Hoog/dia<input name=SH type=number min="0" style="width:70px;" maxlength=20 value='3024'>
-						Dikte<input name=SD type=number min="0" style="width:70px;" maxlength=20 value='12'>
+						Hoog/dia<input name=SH type=number min="0" style="width:70px;" maxlength=20 value=''>
+						Dikte<input name=SD type=number min="0" style="width:70px;" maxlength=20 value=''>
 						
-						Lengte<input name=SL type=number min="0" style="width:70px;" maxlength=20 value='2300'>
+						Lengte<input name=SL type=number min="0" style="width:70px;" maxlength=20 value=''>
 						</div> 
 							<br> 
 						<div id=romp>
@@ -138,20 +132,17 @@ wagenAan.append(" }"+ eol); */
 						</div> 
 						<div id="dimensie" style="width: 700px;">
 						Aantal<input name=A type=number min="1" style="width:30px;" maxlength=3 value='1'>
-						Dikte<input name=D type=number min="0" style="width:70px;" maxlength=20 value='12'>
-						Breedte<input name=B type=number min="0" style="width:70px;" maxlength=20 value='2320'>
-						Lengte<input name=L type=number min="0" style="width:70px;" maxlength=20 value='9550'>
+						Dikte<input name=D type=number min="0" style="width:70px;" maxlength=20 value=''>
+						Breedte<input name=B type=number min="0" style="width:70px;" maxlength=20 value=''>
+						Lengte<input name=L type=number min="0" style="width:70px;" maxlength=20 value=''>
 						</div>
 						<br> 
-						<div id=materiaal>
-								<br>
-								Materiaalsoort
-						</div> 
+			
 						<div id="materiaalsoort" style="width: 800px;">
-						Materiaalcode<input name=mc type=text style="width:80px;" maxlength=10 value='S235JR2G2'>
+						Materiaalcode<input name=mc type=text style="width:70px;" maxlength=10 value='S355J2G3'>
 						Unit<input name=mu type=text min="0" style="width:70px;" maxlength=10 value='Euro/Kg'>
 						Soortelijk gewicht<input name=ms type=text style="width:70px;" maxlength=10 value='8,00'>
-						Prijs per unit<input name=mp type=text style="width:70px;" maxlength=10 value='1,02'>
+						Prijs per unit<input name=mp type=text style="width:70px;" maxlength=10 value='0,90'>
 						Certificering<input name=mce type=text style="width:70px;" maxlength=10 value='3.1 B'>
 						</div>
 						</div>
@@ -159,93 +150,88 @@ wagenAan.append(" }"+ eol); */
 						</td>
  							</tr>
  						
- 						<table>
+ 						<!-- <table>
  						<br>
  						<br>
  						<br>
  						<br>
  							<tr>
- 							<td>Bruto gewicht:</td><td><input type=text name=brutogewicht maxlength=10 value='2127'></td>
+ 							<td>Bruto gewicht:</td><td><input type=number name=brutogewicht maxlength=6  min="0" value=''></td>
  							</tr>
  							<tr>
- 							<td>Netto gewicht:</td><td><input type=text name=nettogewicht maxlength=10 value='2089,03'></td>
+ 							<td>Netto gewicht:</td><td><input type=number name=nettogewicht maxlength=6 min="0" size=4 value=''></td>
  							</tr>
  							<tr>
- 							<td>Verf opplervlakte:</td><td><input type=text name=verfopp maxlength=10 value='43,7'></td>
+ 							<td>Verf opplervlakte:</td><td><input type=number name=verfopp maxlength=6 min="0" size=4 value=''></td>
  							</tr>
  							<tr>
- 							<td>bw (100):</td><td><input type=text name=bw maxlength=10 value='1,7'></td>
+ 							<td>bw (100):</td><td><input type=number name=bw maxlength=6 min="0" step=0.01 size=4 value=''></td>
  							</tr>
  							<tr>
- 							<td>br (110):</td><td><input type=text name=br maxlength=10 value='1,7'></td>
+ 							<td>br (110):</td><td><input type=number name=br maxlength=6 min="0" step=0.01 size=4 value=''></td>
  							</tr>
  							<tr>
- 							<td>wals (120):</td><td><input type=text name=wals maxlength=10 value='13,1'></td>
+ 							<td>wals (120):</td><td><input type=number name=wals maxlength=6 min="0" step=0.01 size=4 value=''></td>
  							</tr>
  							<tr>
- 							<td>lassen (200):</td><td><input type=text name=lassen maxlength=10  value='8,3'></td>
+ 							<td>lassen (200):</td><td><input type=number name=lassen maxlength=6 min="0" step=0.01 size=4 value=''></td>
  							</tr>
  							<tr>
- 							<td>UM-las (210):</td><td><input type=text name=umlas maxlength=10  value=''></td>
+ 							<td>UM-las (210):</td><td><input type=number name=umlas maxlength=6 min="0" step=0.01 size=4 value=''></td>
  							</tr>
  							<tr>
- 							<td>kotteren (300):</td><td><input type=text name=kotteren maxlength=10  value=''></td>
+ 							<td>kotteren (300):</td><td><input type=number name=kotteren maxlength=6 min="0" step=0.01 size=4 value=''></td>
  							</tr>
  							<tr>
- 							<td>dr/frezen (310):</td><td><input type=text name=drfrezen maxlength=10 value=''></td>
+ 							<td>dr/frezen (310):</td><td><input type=number name=drfrezen maxlength=6 min="0" step=0.01 size=4 value=''></td>
  							</tr>
  							<tr>
- 							<td>proj./wvb (420):</td><td><input type=text name=projectwvb maxlength=10 value='1,4'></td>
- 							</tr>
- 							<td>tot. uren:</td><td><input type=text name=toturen maxlength=10 value='21,0'></td>
+ 							<td>proj./wvb (420):</td><td><input type=number name=projectwvb maxlength=6 min="0" step=0.01 size=4 value=''></td>
  							</tr>
  							<tr>
- 							<td>br. M1 recht:</td><td><input type=text name=brrecht maxlength=10 value='23,7'></td>
+ 							<td>br. M1 recht:</td><td><input type=number name=brrecht maxlength=6 min="0" step=0.01 size=4 value=''></td>
  							</tr>
  							<tr>
- 							<td>br. M1 schuin:</td><td><input type=text name=brschuin maxlength=10 value=''></td>
+ 							<td>br. M1 schuin:</td><td><input type=number name=brschuin maxlength=6 min="0" step=0.01 size=4 value=''></td>
  							</tr>
  							<tr>
- 							<td>zaaguur:</td><td><input type=text name=zaaguur maxlength=10 value=''></td>
+ 							<td>zaaguur:</td><td><input type=number name=zaaguur maxlength=6 min="0" step=0.01 size=4 value=''></td>
  							</tr>
  							<tr>
- 							<td>boor marger:</td><td><input type=text name=boorm maxlength=10 value=''></td>
+ 							<td>boor marger:</td><td><input type=number name=boorm maxlength=6 min="0" step=0.01 size=4 value=''></td>
  							</tr>
  							<tr>
- 							<td>boor uur:</td><td><input type=text name=booruur maxlength=10 value=''></td>
+ 							<td>boor uur:</td><td><input type=number name=booruur maxlength=6 min="0" step=0.01 size=4 value=''></td>
  							</tr>
  							 <tr>
- 							<td>las cat:</td><td><input type=text name=lascat maxlength=10 value='3'></td>
+ 							<td>las cat:</td><td><input type=number name=lascat maxlength=6 min="0" step=0.01 size=4 value=''></td>
  							</tr>
  							<tr>
- 							<td>las 1 type:</td><td><input type=text name=las1 maxlength=10 value=''></td>
+ 							<td>las cat:</td><td><input type=number name=lascat maxlength=6 min="0" step=0.01 size=4 value=''></td>
  							</tr>
  							<tr>
- 							<td>las mtr:</td><td><input type=text name=lasmtr1 maxlength=10 value='9,6'></td>
+ 							<td>las 1 type:</td><td><input type=number name=las1 maxlength=6 min="0" step=0.01 size=4 value=''></td>
  							</tr>
  							<tr>
- 							<td>inh. cm3:</td><td><input type=text name=inh1 maxlength=10 value=''></td>
+ 							<td>las mtr:</td><td><input type=number name=lasmtr1 maxlength=6 min="0" step=0.01 size=4 value=''></td>
  							</tr>
  							<tr>
- 							<td>las hrs:</td><td><input type=text name=hrs1 maxlength=10 value=''></td>
+ 							<td>inh. cm3:</td><td><input type=number name=inh1 maxlength=6 min="0" step=0.01 size=4 value=''></td>
  							</tr>
  							<tr>
- 							<td>las 2 type:</td><td><input type=text name=hrs2 maxlength=10 value=''></td>
+ 							<td>las hrs:</td><td><input type=number name=hrs1 maxlength=6 min="0" step=0.01 size=4 value=''></td>
  							</tr>
- 								<tr>
- 							<td>las mtr:</td><td><input type=text name=las2 maxlength=10 value='2,3'></td>
- 							</tr>
- 							 							<tr>
- 							<td>inh. cm3:</td><td><input type=text name=inh2 maxlength=10 value=''></td>
- 							</tr>
- 							 							<tr>
- 							<td>las hrs:</td><td><input type=text name=hrs2 maxlength=10 value=''></td>
+ 							<tr>
+ 							<td>las 2 type:</td><td><input type=number name=hrs2 maxlength=6 min="0" step=0.01 size=4 value=''></td>
  							</tr>
  							
- 						</table>
+ 							
+ 							
+ 						</table> -->
+ 						<table></table>
  					
  <br><br><br>
-<input type=submit value=Opslaan class=button> <input type=reset class=button>
+<input type=submit value=Toevoeging class=button> <input type=reset class=button>
 </table>
 </form>
 </body>

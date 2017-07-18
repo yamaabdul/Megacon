@@ -15,6 +15,10 @@ public abstract class DAOFactory {
 		return new MedewerkerDAO();
 	}
 	
+	public Standaard_onderdeelDAO getStandaard_onderdeelDAO() {
+		return new Standaard_onderdeelDAO();
+	}
+	
 	public abstract Connection getConnection() throws SQLException;
    
 	public static DAOFactory getDAOFactory() {  // default method

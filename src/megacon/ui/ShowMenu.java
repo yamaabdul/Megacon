@@ -38,6 +38,7 @@ public class ShowMenu {
 	out.append("		<ul>");
 	out.append("			<li class='last'><a href='showProject.jsp'><span>Overzicht</span></a></li>");
 	out.append("			<li class='last'><a href='newProject.jsp'><span>Nieuw</span></a></li>");
+	out.append("			<li class='last'><a href='onderdeel.jsp'><span>Onderdeel</span></a></li>");
 	out.append("		</ul>");
 	out.append("	</li>");
 	out.append("	<li class='has-sub'><a href='#'><span>Rapportages</span></a>");

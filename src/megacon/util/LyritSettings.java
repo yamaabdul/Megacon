@@ -37,6 +37,7 @@ public class LyritSettings {
 		}
 	}
 	
+	public final static String eol            = "\r\n";  // window eol. Unix eol = \n ?
 	
 	public static StringBuffer showHeader(){
 		StringBuffer header = new StringBuffer("");
