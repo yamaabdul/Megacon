@@ -1,4 +1,6 @@
 
+<%@page import="java.util.Calendar"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="megacon.util.LyritSettings"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.Collection"%>
@@ -26,6 +28,7 @@ else{
 	Standaard_onderdeel stnd;
 	
 	String eol            = "\r\n"; 
+	String timeStamp = new SimpleDateFormat("dd-MM-yyyy HH:mm").format(Calendar.getInstance().getTime());
 	
 out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 %>
@@ -42,7 +45,6 @@ animatedcollapse.addDiv('standaardond', 'fade=1,speed=200')
 animatedcollapse.addDiv('dimensie', 'fade=1,speed=200') 
 animatedcollapse.addDiv('standard_dimensie', 'fade=1,speed=200') 
 animatedcollapse.addDiv('romp', 'fade=1,speed=200') 
-animatedcollapse.addDiv('materiaal', 'fade=1,speed=200') 
 animatedcollapse.addDiv('materiaalsoort', 'fade=1,speed=200') 
 
 animatedcollapse.ontoggle=function($, divobj, state){ //fires each time a DIV is expanded/contracted 
@@ -59,52 +61,41 @@ function Aan(){
 	animatedcollapse.show('romp');
 	animatedcollapse.show('dimensie');
 	animatedcollapse.show('standard_dimensie');
-	animatedcollapse.show('materiaal');
-	animatedcollapse.show('materiaalsoort');
+	animatedcollapse.show('pos');
 	initStandardonderdeel();
 }
 
 function initStandardonderdeel(){
-document.div0.romp.checked = true;
-document.div0.materiaal.checked = true;
+//document.div0.romp.checked = true;
+
 }
-<%
-
-
-
-/* 
-String eol = LyritSettings.eol;
-StringBuffer wagenAan = new StringBuffer();
-wagenAan.append("function Aan(){"+ eol);
-wagenAan.append("var wagvalue = (document.div0.standaardond.value);"+ eol);
-wagenAan.append("var i = 0;"+ eol);
-wagenAan.append("var j = 0;"+ eol);
-wagenAan.append("switch(wagvalue){"+ eol);
-wagenAan.append("switch(wagvalue){"+ eol);
-wagenAan.append(" case '" + stn_ond.getStandaardOnderdeel_id() + "': "+ eol);
-wagenAan.append("  animatedcollapse.show('kraan');"+ eol);
-wagenAan.append("  break;"+ eol);
-wagenAan.append("  i=j;"+ eol);
-wagenAan.append(" }"+ eol); */
-
-
-
-%>
 
 
 </script>
 </head>
 
 <body>
-  <h3>Onderdeel</h3><p><br><br>
+  <h1>Onderdeel toevoeging</h1><p><br><br>
 	    <form method=post action=OnderdeelServlet name=div0>
 	    <table>
 	    <tr><td></td><td><input name=onderdeel_id maxlength=6 type=text hidden maxlength=30 size=30 value='1'></td></tr>
-	  <!--   <tr><td>Component ID:</td><td><input name=component_id maxlength=6 type=text maxlength=30 size=30 value=''></td></tr>
-	    <tr><td>Standaardonderdeel ID:</td><td><input name=staandardOnderdeel_id maxlength=6 type=text size=30 value=''></td></tr>
-	     -->
+	  <tr><td>Project:</td><td><input name=projectNaam maxlength=6 type=text  readonly maxlength=30 size=30 value='Tata S-BOCH OXYii'></td></tr>
+		<tr><td>Status:</td> 
+			<td>
+			<select style="width:242px";>
+			  <option value="0">Nieuw</option>
+			  <option value="1">Geaccepteerd</option>
+			  <option value="2">Geweigerd</option>
+			  <option value="3">Geannuleerd</option>
+			</select>
+		</td></tr>
+	    <tr><td>Component:</td><td><input name=componentNaam maxlength=6 type=text  readonly maxlength=30 size=30 value='S-BOCHT'></td></tr>
+	    <tr><td>Klant:</td><td><input name=bedrijfsNaam maxlength=6 type=text  readonly maxlength=30 size=30 value='TATA STEEL'></td></tr>
+	    <tr><td>Medewerker:</td><td><input name=medewekerNaam maxlength=6 type=text  readonly maxlength=30 size=30 value='<%=user.getMedewerkerNaam()%>'></td></tr>
+	    <tr><td>Datum:</td><td><input name=datum maxlength=6 type=text  readonly maxlength=30 size=30 value='<%=timeStamp%>'><br></td></tr>
+	    <tr><td><br><br>Standaard onderdeel configureren</td></tr>
 	    <tr>
-				<td valign=top>Standaard onderdeel configureren</td>
+				<td></td>
 				<td>
 					 <a class="two" href="#" rel="toggle[div0]"><span id=wgntxt></span></a>
 					<div id=div0>
@@ -131,10 +122,9 @@ wagenAan.append(" }"+ eol); */
 						Lengte<input name=SL type=number min="0" style="width:70px;" maxlength=20 value='2300'>
 						</div> 
 							<br> 
+						<br> 
 						<div id=romp>
-								<br>
-								<input type=checkbox name=romp>
-								Romp
+								Plaat romp
 						</div> 
 						<div id="dimensie" style="width: 700px;">
 						Aantal<input name=A type=number min="1" style="width:30px;" maxlength=3 value='1'>
@@ -142,28 +132,33 @@ wagenAan.append(" }"+ eol); */
 						Breedte<input name=B type=number min="0" style="width:70px;" maxlength=20 value='2320'>
 						Lengte<input name=L type=number min="0" style="width:70px;" maxlength=20 value='9550'>
 						</div>
-						<br> 
-						<div id=materiaal>
-								<br>
-								Materiaalsoort
+						<br>
+								<br> 
+						<div id=pos>
+								<br>Positie
+								<input type=text name=pos style="width:30px;" maxlength=10 value='A'>
 						</div> 
-						<div id="materiaalsoort" style="width: 800px;">
-						Materiaalcode<input name=mc type=text style="width:80px;" maxlength=10 value='S235JR2G2'>
-						Unit<input name=mu type=text min="0" style="width:70px;" maxlength=10 value='Euro/Kg'>
+				 				<br>
+							<br>Materiaal
+						<select style="width:90px";>
+						  <option value="0">S355J2G3</option>
+						  <option value="1">S235JRG2</option>
+						  <option value="2">A106B</option>
+						  <option value="3">A234WPB</option>
+						</select>
+						Unit<input name=mu type=text min="0" style="width:60px;" maxlength=10 value='Euro/Kg'>
 						Soortelijk gewicht<input name=ms type=text style="width:70px;" maxlength=10 value='8,00'>
-						Prijs per unit<input name=mp type=text style="width:70px;" maxlength=10 value='1,02'>
+						Prijs per unit<input name=mp type=text style="width:70px;" maxlength=10 value='0,90'>
 						Certificering<input name=mce type=text style="width:70px;" maxlength=10 value='3.1 B'>
 						</div>
 						</div>
-						</div>
+						<br><br><br><br><br><br><br><br>
 						</td>
+ 						</tr>
+ 						 	
+ 						 	<tr>
+ 							<td> <h3>Berekende gegevens </h3></td><td></td>
  							</tr>
- 						
- 						<table>
- 						<br>
- 						<br>
- 						<br>
- 						<br>
  							<tr>
  							<td>Bruto gewicht:</td><td><input type=text name=brutogewicht maxlength=10 value='2127'></td>
  							</tr>
@@ -197,6 +192,7 @@ wagenAan.append(" }"+ eol); */
  							<tr>
  							<td>proj./wvb (420):</td><td><input type=text name=projectwvb maxlength=10 value='1,4'></td>
  							</tr>
+ 							<tr>
  							<td>tot. uren:</td><td><input type=text name=toturen maxlength=10 value='21,0'></td>
  							</tr>
  							<tr>
@@ -232,20 +228,20 @@ wagenAan.append(" }"+ eol); */
  							<tr>
  							<td>las 2 type:</td><td><input type=text name=hrs2 maxlength=10 value=''></td>
  							</tr>
- 								<tr>
+ 							<tr>
  							<td>las mtr:</td><td><input type=text name=las2 maxlength=10 value='2,3'></td>
  							</tr>
- 							 							<tr>
+ 							<tr>
  							<td>inh. cm3:</td><td><input type=text name=inh2 maxlength=10 value=''></td>
  							</tr>
- 							 							<tr>
+ 							<tr>
  							<td>las hrs:</td><td><input type=text name=hrs2 maxlength=10 value=''></td>
  							</tr>
- 							
- 						</table>
- 					
- <br><br><br>
-<input type=submit value=Opslaan class=button> <input type=reset class=button>
+ 							<tr>
+							<td>Notitie:</td>
+							<td><textarea class=txt rows=3 style="width:372px;" name=notitie></textarea></td>
+		</tr>
+ 		<tr><td></td><td><br><br><br><br><br><br><input type=submit value=Toevoeging class=button> <input type=reset class=button></td></tr>
 </table>
 </form>
 </body>

@@ -13,7 +13,7 @@ public class MedewerkerDAO {
 	 
 	public static final String TABLENAME = "Medewerker";
 	
-	public Medewerker getMedewerker(int id_medewerker) {
+	public Medewerker getMedewerker(int medewerker_id) {
 		StringBuffer sqlStatement = new StringBuffer("");
 		sqlStatement.append("select * from ");
 		sqlStatement.append(TABLENAME);
@@ -21,7 +21,7 @@ public class MedewerkerDAO {
 		try {
 			Connection conn = DAOFactory.getDAOFactory().getConnection();
 			PreparedStatement stmt = conn.prepareStatement(sqlStatement.toString());
-			stmt.setInt(1, id_medewerker);
+			stmt.setInt(1, medewerker_id);
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
 	            conn.close();
