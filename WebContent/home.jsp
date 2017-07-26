@@ -22,6 +22,7 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/dailogbox.css"	media="screen" />
+<link rel="stylesheet" type="text/css" href="css/style2.css" media="screen"/>
 </head>
 <body>
 	<div id="white-background">

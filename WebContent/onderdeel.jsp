@@ -74,23 +74,28 @@ function initStandardonderdeel(){
 </head>
 
 <body>
-  <h1>Onderdeel toevoeging</h1><p><br><br>
+  <h1>Onderdeel toevoegen</h1><p><br><br>
 	    <form method=post action=editOnderdeel.jsp name=div0>
 	    <table>
-	    <tr><td>Project:</td><td><input name=projectNaam maxlength=6 type=text  readonly maxlength=30 size=30 value='Tata S-BOCH OXYii'></td></tr>
+	    <tr><td>Project:</td><td><input name=projectNaam type=text readonly maxlength=30 size=30 value='Tata S-BOCH OXYii' style="background-color:Lavender; color:black;"></td></tr>
 		<tr><td>Status:</td> 
 			<td>
 			<select style="width:242px";>
-			  <option value="0">Nieuw</option>
-			  <option value="1">Geaccepteerd</option>
-			  <option value="2">Geweigerd</option>
-			  <option value="3">Geannuleerd</option>
+		  	  <option value="0">Nieuw</option>
+			  <option value="1">Gecalculeerd</option>
+			  <option value="2">Geaccepteerd</option>
+			  <option value="3">Geweigerd</option>
+			  <option value="4">Geannuleerd</option>
 			</select>
 		</td></tr>
-	    <tr><td>Component:</td><td><input name=componentNaam maxlength=6 type=text  readonly maxlength=30 size=30 value='S-BOCHT'></td></tr>
-	    <tr><td>Klant:</td><td><input name=bedrijfsNaam maxlength=6 type=text  readonly maxlength=30 size=30 value='TATA STEEL'></td></tr>
-	    <tr><td>Medewerker:</td><td><input name=medewekerNaam maxlength=6 type=text  readonly maxlength=30 size=30 value='<%=user.getMedewerkerNaam()%>'></td></tr>
-	    <tr><td>Datum:</td><td><input name=datum maxlength=6 type=text  readonly maxlength=30 size=30 value='<%=timeStamp%>'><br></td></tr>
+	    <tr><td>Referentienummer:</td>
+	    <td><input name=referentienummer maxlength=6 type=text   maxlength=30 size=30 value='C-4483' style="background-color:Lavender; color:black;"></td></tr>
+	    <tr><td>Klant:</td><td><input name=projectNaam type=text  readonly maxlength=30 size=30 value='Tata Steel' style="background-color:Lavender; color:black;"></td></tr>
+	    <tr><td>Medewerker:</td><td><input name=medewekerNaam type=text  readonly maxlength=30 size=30 value='<%=user.getMedewerkerNaam()%>' style="background-color:Lavender; color:black;"></td></tr>
+	    <tr><td>Datum:</td><td><input name=datum type=text  readonly maxlength=30 size=30 value='<%=timeStamp%>' style="background-color:Lavender; color:black;"><br></td></tr>
+	    <tr><td>Component:</td><td><input name=componentNaam type=text readonly maxlength=30 size=30 value='S-BOCHT' style="background-color:Lavender; color:black;"></td></tr>
+	    <tr><td>Tekeningnummer:</td><td><input name=tekeningnr type=text readonly maxlength=30 size=30 value='F82872' style="background-color:Lavender; color:black;"></td></tr>
+	    <tr><td>Aantal:</td><td><input name=aantal type=number min="1" style="background-color:Lavender; color:black; width:30px;" readonly maxlength=2 value='1'>
 	    <tr><td><br><br>Standaard onderdeel configureren</td></tr>
 	    <tr>
 				<td></td>
@@ -151,7 +156,7 @@ function initStandardonderdeel(){
 						</div>
 						</td>
  						</tr>
-						<tr><td></td><td><br><br><br><br><br><br><input type=submit value=Toevoeging class=button> <input type=reset class=button></td></tr>
+						<tr><td></td><td><br><br><br><br><br><br><input type=submit value=Toevoegen class=button> <input type=reset class=button></td></tr>
  						
 
 </table>

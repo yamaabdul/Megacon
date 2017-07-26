@@ -29,7 +29,7 @@ else{
 	
 	String eol            = "\r\n"; 
 	String timeStamp = new SimpleDateFormat("dd-MM-yyyy HH:mm").format(Calendar.getInstance().getTime());
-	
+	String brg= "Berekende gegevens";
 out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 %>
 <html>
@@ -40,12 +40,20 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 <script type="text/javascript">
 
+
 animatedcollapse.addDiv('div0', 'fade=1,speed=200')
-animatedcollapse.addDiv('standaardond', 'fade=1,speed=200')
-animatedcollapse.addDiv('dimensie', 'fade=1,speed=200') 
-animatedcollapse.addDiv('standard_dimensie', 'fade=1,speed=200') 
-animatedcollapse.addDiv('romp', 'fade=1,speed=200') 
+animatedcollapse.addDiv('standaardond', 'fade=1,speed=200 ,hide=1')
+animatedcollapse.addDiv('dimensie', 'fade=1,speed=200 ,hide=1') 
+animatedcollapse.addDiv('standard_dimensie', 'fade=1,speed=200 ,hide=1') 
+animatedcollapse.addDiv('romp', 'fade=1,speed=200 ')
+animatedcollapse.addDiv('pos', 'fade=1,speed=200 ,hide=1') 
+animatedcollapse.addDiv('materiaal', 'fade=1,speed=200 ,hide=1') 
+animatedcollapse.addDiv('brgegevens', 'fade=1,speed=200, hide=1') 
 animatedcollapse.addDiv('materiaalsoort', 'fade=1,speed=200') 
+animatedcollapse.addDiv('brgegevens', 'fade=1,speed=200') 
+animatedcollapse.addDiv('div1', 'fade=1,speed=200')  
+animatedcollapse.addDiv('wgn', 'fade=0, speed=200')
+animatedcollapse.addDiv('las', 'fade=1,speed=200, hide=1') 
 
 animatedcollapse.ontoggle=function($, divobj, state){ //fires each time a DIV is expanded/contracted 
 	//$: Access to jQuery 
@@ -62,37 +70,55 @@ function Aan(){
 	animatedcollapse.show('dimensie');
 	animatedcollapse.show('standard_dimensie');
 	animatedcollapse.show('pos');
+	animatedcollapse.show('div1');
 	initStandardonderdeel();
+}
+
+function Out(){
+	//animatedcollapse.show('div0');
+	animatedcollapse.show('brgegevens');
+	animatedcollapse.hide('romp');
+	animatedcollapse.hide('dimensie');
+	animatedcollapse.hide('standard_dimensie');
+	animatedcollapse.hide('pos');
+	//animatedcollapse.hide('wgn');
 }
 
 function initStandardonderdeel(){
 //document.div0.romp.checked = true;
 
 }
-
+//add new input type
+function add_fields() {
+    document.getElementById('brgegevens').innerHTML += '<span>Lassen:<input type="text"></span>\r\n<br><br>';
+}
 
 </script>
 </head>
 
 <body>
-  <h1>Onderdeel toevoeging</h1><p><br><br>
+  <h1>Onderdeel toevoegen</h1><p><br><br>
 	    <form method=post action=OnderdeelServlet name=div0>
 	    <table>
-	    <tr><td></td><td><input name=onderdeel_id maxlength=6 type=text hidden maxlength=30 size=30 value='1'></td></tr>
-	  <tr><td>Project:</td><td><input name=projectNaam maxlength=6 type=text  readonly maxlength=30 size=30 value='Tata S-BOCH OXYii'></td></tr>
+	    <tr><td></td><td><input name=onderdeel_id type=text hidden maxlength=30 size=30 value='1'></td></tr>
+	  <tr><td>Project:</td><td><input name=projectNaam type=text  readonly maxlength=30 size=30 value='Tata S-BOCH OXYii' style="background-color:Lavender; color:black;"></td></tr>
 		<tr><td>Status:</td> 
 			<td>
 			<select style="width:242px";>
-			  <option value="0">Nieuw</option>
+			  <option value="0">Gecalculeerd</option>
 			  <option value="1">Geaccepteerd</option>
 			  <option value="2">Geweigerd</option>
 			  <option value="3">Geannuleerd</option>
 			</select>
 		</td></tr>
-	    <tr><td>Component:</td><td><input name=componentNaam maxlength=6 type=text  readonly maxlength=30 size=30 value='S-BOCHT'></td></tr>
-	    <tr><td>Klant:</td><td><input name=bedrijfsNaam maxlength=6 type=text  readonly maxlength=30 size=30 value='TATA STEEL'></td></tr>
-	    <tr><td>Medewerker:</td><td><input name=medewekerNaam maxlength=6 type=text  readonly maxlength=30 size=30 value='<%=user.getMedewerkerNaam()%>'></td></tr>
-	    <tr><td>Datum:</td><td><input name=datum maxlength=6 type=text  readonly maxlength=30 size=30 value='<%=timeStamp%>'><br></td></tr>
+	    <tr><td>Referentienummer:</td>
+	    <td><input name=referentienummer maxlength=6 type=text   maxlength=30 size=30 value='C-4483' style="background-color:Lavender; color:black;"></td></tr>
+	    <tr><td>Klant:</td><td><input name=projectNaam type=text  readonly maxlength=30 size=30 value='Tata Steel' style="background-color:Lavender; color:black;"></td></tr>
+	    <tr><td>Medewerker:</td><td><input name=medewekerNaam type=text  readonly maxlength=30 size=30 value='<%=user.getMedewerkerNaam()%>' style="background-color:Lavender; color:black;"></td></tr>
+	    <tr><td>Datum:</td><td><input name=datum type=text  readonly maxlength=30 size=30 value='<%=timeStamp%>' style="background-color:Lavender; color:black;"><br></td></tr>
+	    <tr><td>Component:</td><td><input name=componentNaam type=text readonly maxlength=30 size=30 value='S-BOCHT' style="background-color:Lavender; color:black;"></td></tr>
+	    <tr><td>Tekeningnummer:</td><td><input name=tekeningnr type=text readonly maxlength=30 size=30 value='F82872' style="background-color:Lavender; color:black;"></td></tr>
+	    <tr><td>Aantal:</td><td><input name=aantal type=number min="1" style="background-color:Lavender; color:black; width:30px;" readonly maxlength=2 value='1'>
 	    <tr><td><br><br>Standaard onderdeel configureren</td></tr>
 	    <tr>
 				<td></td>
@@ -100,7 +126,7 @@ function initStandardonderdeel(){
 					 <a class="two" href="#" rel="toggle[div0]"><span id=wgntxt></span></a>
 					<div id=div0>
 						<div class="centerwindow2">
-							<select name=standaardond onchange="Aan();">
+							<select name=standaardond onchange="Aan();" >
 								<option value=0>ROMP</option>
 								<%
 								
@@ -138,8 +164,8 @@ function initStandardonderdeel(){
 								<br>Positie
 								<input type=text name=pos style="width:30px;" maxlength=10 value='A'>
 						</div> 
-				 				<br>
-							<br>Materiaal
+				 		<div id=materiaal>	<br>
+						<br>Materiaal
 						<select style="width:90px";>
 						  <option value="0">S355J2G3</option>
 						  <option value="1">S235JRG2</option>
@@ -150,35 +176,37 @@ function initStandardonderdeel(){
 						Soortelijk gewicht<input name=ms type=text style="width:70px;" maxlength=10 value='8,00'>
 						Prijs per unit<input name=mp type=text style="width:70px;" maxlength=10 value='0,90'>
 						Certificering<input name=mce type=text style="width:70px;" maxlength=10 value='3.1 B'>
+						</div>	
 						</div>
 						</div>
-						<br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br>
 						</td>
- 						</tr>
- 						 	
- 						 	<tr>
- 							<td> <h3>Berekende gegevens </h3></td><td></td>
+						<tr><td></td> <td><h3><%=brg%></h3></td></tr>
+						<tr>
+						<td></td><td>
+					    <a class="two" href="#" rel="toggle[div1]"><span id=wgn ></span></a>
+					    <div id=div1>
+						<div class="centerwindow2">
+						<div id=brgegevens style="width: 370px;" >
+							<table>
+							<tr>
+ 							<td>Bruto gewicht:</td><td><input type=text name=brutogewicht readonly maxlength=10 value='2127' style="background-color:Lavender; color:black;"></td>
  							</tr>
  							<tr>
- 							<td>Bruto gewicht:</td><td><input type=text name=brutogewicht maxlength=10 value='2127'></td>
+ 							<td>Netto gewicht:</td><td><input type=text name=nettogewicht readonly maxlength=10 value='2089,03'style="background-color:Lavender; color:black;"></td>
  							</tr>
  							<tr>
- 							<td>Netto gewicht:</td><td><input type=text name=nettogewicht maxlength=10 value='2089,03'></td>
+ 							<td>Verf opplervlakte:</td><td><input type=text name=verfopp readonly maxlength=10 value='43,7' style="background-color:Lavender; color:black;"></td>
  							</tr>
- 							<tr>
- 							<td>Verf opplervlakte:</td><td><input type=text name=verfopp maxlength=10 value='43,7'></td>
- 							</tr>
- 							<tr>
- 							<td>bw (100):</td><td><input type=text name=bw maxlength=10 value='1,7'></td>
- 							</tr>
- 							<tr>
+							<tr><td> bw (100):</td> <td><input type=text name=bw maxlength=10 value='1,7'></td></tr>
+							<tr>
  							<td>br (110):</td><td><input type=text name=br maxlength=10 value='1,7'></td>
  							</tr>
- 							<tr>
+							<tr>
  							<td>wals (120):</td><td><input type=text name=wals maxlength=10 value='13,1'></td>
  							</tr>
- 							<tr>
- 							<td>lassen (200):</td><td><input type=text name=lassen maxlength=10  value='8,3'></td>
+<!--  							<tr>
+ 							<td>lassen (200):</td><td><input type=text name=lassen maxlength=10  value=''></td>
  							</tr>
  							<tr>
  							<td>UM-las (210):</td><td><input type=text name=umlas maxlength=10  value=''></td>
@@ -188,7 +216,18 @@ function initStandardonderdeel(){
  							</tr>
  							<tr>
  							<td>dr/frezen (310):</td><td><input type=text name=drfrezen maxlength=10 value=''></td>
- 							</tr>
+ 							</tr> -->
+ 						
+ 							<tr><td>Voeg een bewerking toe:</td> 
+							<td>
+							<select name=bewerking onchange="add_fields();"style="width:175px";>
+			 			    <option value="0">--maak keuze--</option>
+			  				<option value="1">lassen</option>
+			  				<option value="2">UM-las</option>
+			  				<option value="3">kottereen</option>
+			  				<option value="4">dr/frezen</option>
+							</select>
+							</td></tr> 
  							<tr>
  							<td>proj./wvb (420):</td><td><input type=text name=projectwvb maxlength=10 value='1,4'></td>
  							</tr>
@@ -239,9 +278,16 @@ function initStandardonderdeel(){
  							</tr>
  							<tr>
 							<td>Notitie:</td>
-							<td><textarea class=txt rows=3 style="width:372px;" name=notitie></textarea></td>
-		</tr>
- 		<tr><td></td><td><br><br><br><br><br><br><input type=submit value=Toevoeging class=button> <input type=reset class=button></td></tr>
+							<td><textarea class=txt rows=3 style="width:168px;" name=notitie></textarea></td>
+							</tr>
+							</table> 
+						</div> </div></div>
+						<br><br><br><br><br></td> 
+ 						</tr>
+ 						 	
+
+							
+ 		<tr><td></td><td><br><input type=submit value=Toevoegen class=button> <input type=reset class=button></td></tr>
 </table>
 </form>
 </body>
