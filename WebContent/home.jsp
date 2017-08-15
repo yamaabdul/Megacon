@@ -30,8 +30,8 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 		
 	<table id="tile_table">
     <tr>
-        <td><div class="tile"><a href=home.jsp><img class="tile" alt="" src="images/home/home.png">
-        		<h3>Home</h3></a>
+        <td><div class="tile"><a href=newProject.jsp><img class="tile" alt="" src="images/home.png">
+        		<h3 style="color:white;">Nieuw project</h3></a>
         	</div>
         </td>
     </tr>

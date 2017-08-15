@@ -137,9 +137,15 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
                     { name: 'gaten', type: 'string' }
                 ],
            
-                id: 'EmployeeID',
+                id: 'ID',
                 localData: employees
             };
+            
+            
+            var linkrenderer = function (row, column, value) {
+            return "<a href='editOnderdeel.jsp'>" + value + "</a>";
+        	};
+        	
             var dataAdapter = new $.jqx.dataAdapter(source);
             // create Tree Grid
             $("#treeGrid").jqxTreeGrid(
@@ -148,7 +154,7 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
                 source: dataAdapter,
              
                 columns: [
-				  { text: 'ID', dataField: 'ID', width: 50 },
+				  { text: 'ID', dataField: 'ID', width: 50, cellsrenderer: linkrenderer },
                   { text: 'Pos', dataField: 'Pos', width: 50 },
                   { text: 'Aant', dataField: 'Aant', width: 50 },
                   { text: 'Type', dataField: 'Type', width: 100 },

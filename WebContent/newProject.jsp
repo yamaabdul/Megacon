@@ -47,15 +47,15 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 	    <tr><td>Referentienummer:</td><td><input name=referentienummer type=text required  maxlength=30 size=30 value=''></td></tr>
 	    <tr><td>Klant:</td> 
 			<td>
-			<select style="width:242px";>
-			  <option value="0">--maak keuze--</option>
+			<select required style="width:242px";>
+			  <option value="">--maak keuze--</option>
 			  <option value="1">Tata Steel</option>
 			  <option value="2">Blok Group</option>
 			  <option value="3">Machinefabriek Adrichem</option>
 			</select>
 		</td></tr>
-	    <tr><td>Medewerker:</td><td><input name=medewekerNaam maxlength=6 type=text  readonly maxlength=30 size=30 value='<%=user.getMedewerkerNaam()%>'></td></tr>
-	    <tr><td>Datum:</td><td><input name=datum maxlength=6 type=text  readonly maxlength=30 size=30 value='<%=timeStamp%>'><br></td></tr>
+	    <tr><td>Medewerker:</td><td><input name=medewekerNaam type=text  readonly maxlength=30 size=30 value='<%=user.getMedewerkerNaam()%>' style="background-color:Lavender; color:black;"></td></tr>
+	    <tr><td>Datum:</td><td><input name=datum maxlength=6 type=text  readonly maxlength=30 size=30 value='<%=timeStamp%>' style="background-color:Lavender; color:black;"><br></td></tr>
 						<tr><td></td><td><br><br><br><br><br><br><input type=submit value=Toevoegen class=button> <input type=reset class=button></td></tr>
  						
 

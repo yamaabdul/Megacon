@@ -40,7 +40,7 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 <script type="text/javascript">
 
-animatedcollapse.addDiv('div0', 'fade=1,speed=200')
+animatedcollapse.addDiv('div0', 'fade=1,speed=200,hide=1')
 animatedcollapse.addDiv('standaardond', 'fade=1,speed=200')
 animatedcollapse.addDiv('dimensie', 'fade=1,speed=200,hide=1') 
 animatedcollapse.addDiv('standard_dimensie', 'fade=1,speed=200,hide=1') 
@@ -56,13 +56,24 @@ animatedcollapse.ontoggle=function($, divobj, state){ //fires each time a DIV is
 animatedcollapse.init() 
 
 
+
+
 function Aan(){
-	//animatedcollapse.show('div0');
+	//animatedcollapse.hide('div0');
 	animatedcollapse.show('romp');
 	animatedcollapse.show('dimensie');
 	animatedcollapse.show('standard_dimensie');
 	animatedcollapse.show('pos');
-	initStandardonderdeel();
+	
+}
+
+function myFunction() {
+    var x = document.getElementById('div0');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
 }
 
 function initStandardonderdeel(){
@@ -70,11 +81,18 @@ function initStandardonderdeel(){
 
 }
 
-</script>
-</head>
 
+$(document).ready(function(){
+    $("div0").click(function(){
+        $("standaardond").slideToggle();
+    });
+});
+
+</script>
+ <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
 <body>
-  <h1>Onderdeel toevoegen</h1><p><br><br>
+  <h1>Nieuw onderdeel toevoegen</h1><br><br>
 	    <form method=post action=editOnderdeel.jsp name=div0>
 	    <table>
 	    <tr><td>Project:</td><td><input name=projectNaam type=text readonly maxlength=30 size=30 value='Tata S-BOCH OXYii' style="background-color:Lavender; color:black;"></td></tr>
@@ -96,13 +114,12 @@ function initStandardonderdeel(){
 	    <tr><td>Component:</td><td><input name=componentNaam type=text readonly maxlength=30 size=30 value='S-BOCHT' style="background-color:Lavender; color:black;"></td></tr>
 	    <tr><td>Tekeningnummer:</td><td><input name=tekeningnr type=text readonly maxlength=30 size=30 value='F82872' style="background-color:Lavender; color:black;"></td></tr>
 	    <tr><td>Aantal:</td><td><input name=aantal type=number min="1" style="background-color:Lavender; color:black; width:30px;" readonly maxlength=2 value='1'>
-	    <tr><td><br><br>Standaard onderdeel configureren</td></tr>
 	    <tr>
-				<td></td>
+				<td></td><br>
 				<td>
-					 <a class="two" href="#" rel="toggle[div0]"><span id=wgntxt></span></a>
-					<div id=div0>
-						<div class="centerwindow2">
+					 <a class="two" href="#" rel="toggle[div0]"><button onclick="myFunction()">Standaard onderdeel configureren</button></a>
+					<div id="div0">
+						<div class="centerwindow2"> <b>Onderdeel</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<select name=standaardond onchange="Aan();">
 								<option value=0>--maak keuze--</option>
 								<%
@@ -117,25 +134,26 @@ function initStandardonderdeel(){
 							</select> <br><br>
 							
 						<div id="standard_dimensie" style="width: 700px;">
-						Aantal<input name=AH type=number min="1" style="width:30px;" maxlength=10 value='1'>
-						Hoog/dia<input name=SH type=number min="0" style="width:70px;" maxlength=20 value=''>
-						Dikte<input name=SD type=number min="0" style="width:70px;" maxlength=20 value=''>
-						Lengte<input name=SL type=number min="0" style="width:70px;" maxlength=20 value=''>
+						Aantal&nbsp;<input name=AH type=number min="1" required style="width:30px;" maxlength=10 value='1'>
+						Hoog/dia&nbsp;<input name=SH type=number min="0" required style="width:70px;" maxlength=20 value=''>
+						Dikte&nbsp;<input name=SD type=number min="0" required style="width:70px;" maxlength=20 value=''>
+						Lengte&nbsp;<input name=SL type=number min="0" required style="width:70px;" maxlength=20 value=''>
 						</div> 
-							<br> 
-						<div id=romp>
-								Plaat romp
-						</div> 
+							<br><br> 
+						<div id=romp><b>Sub onderdeel</b>&nbsp;&nbsp;<input name=sub type=text style="width:115px;" maxlength=15 readonly value='Plaat romp'>
+								
+						</div>
+						<br> 
 						<div id="dimensie" style="width: 700px;">
-						Aantal<input name=A type=number min="1" style="width:30px;" maxlength=3 value='1'>
-						Dikte<input name=D type=number min="0" style="width:70px;" maxlength=20 value=''>
-						Breedte<input name=B type=number min="0" style="width:70px;" maxlength=20 value=''>
-						Lengte<input name=L type=number min="0" style="width:70px;" maxlength=20 value=''>
+						Aantal&nbsp;<input name=A type=number min="1" style="width:30px;" maxlength=3 value='1'>
+						Dikte&nbsp;<input name=D type=number min="0" style="width:70px;" maxlength=20 value=''>
+						Breedte&nbsp;<input name=B type=number min="0" style="width:70px;" maxlength=20 value=''>
+						Lengte&nbsp;<input name=L type=number min="0" style="width:70px;" maxlength=20 value=''>
 						<br>
 								<br> 
 						<div id=pos>
 								<br>Positie
-								<input type=text name=pos style="width:30px;" maxlength=10 value=''>
+								<input type=text name=pos required style="width:30px;" maxlength=10 value=''>
 						</div> 
 						<br>
 							<br>Materiaal

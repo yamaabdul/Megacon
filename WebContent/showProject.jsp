@@ -82,7 +82,8 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 	<script type="text/javascript" src="script/dialogboxscript.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            var employees = [{ "ID": "1", "comp": "S-BOCHT", "aant": "1", "teken": "F82872"},{ "ID": "2", "comp": "COMPENSATOR", "aant": "1", "teken": "F965432"}];
+            var employees = [{ "ID": "1", "pr": "TATA S-BOCHT OXYii", "status": "Gecalculeerd", "ref": "C-4483", "klant": "Tata Steel" , "med": "Ruud van Schinkel", "date": "26-07-2017"},
+                             { "ID": "2", "pr": "TATA VULINRICHTING", "status": "Geaccepteerd", "ref": "C-4520", "klant": "Tata Steel" , "med": "Yama", "date": "20-02-2017"}];
                              
             // prepare the data
             var source =
@@ -90,9 +91,12 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
                 dataType: "json",
                 dataFields: [
                     { name: 'ID', type: 'number' },
-                    { name: 'comp', type: 'string' },
-                    { name: 'aant', type: 'string' },
-                    { name: 'teken', type: 'string' }         
+                    { name: 'pr', type: 'string' },
+                    { name: 'status', type: 'string' },
+                    { name: 'ref', type: 'string' },
+                    { name: 'klant', type: 'string' },
+                    { name: 'med', type: 'string' },
+                    { name: 'date', type: 'string' }        
                 ],
            
                 ID: 'ID',
@@ -100,20 +104,23 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
             };
             
             var linkrenderer = function (row, column, value) {
-            return "<a href='showComponent.jsp'>" + value + "</a>";
+            return "<a href='showComponenten.jsp'>" + value + "</a>";
         	};
             var dataAdapter = new $.jqx.dataAdapter(source);
             // create Tree Grid
             $("#treeGrid").jqxTreeGrid(
             {
-                width: 360,
+                width: 950,
                 source: dataAdapter,
              
                 columns: [
 				  { text: 'ID', dataField: 'ID', width: 50, cellsrenderer: linkrenderer },
-                  { text: 'Component', dataField: 'comp', width: 150 },
-                  { text: 'Aantal', dataField: 'aant', width: 70 },
-                  { text: 'Tekening', dataField: 'teken', width: 90 }
+                  { text: 'Project', dataField: 'pr', width: 150 },
+                  { text: 'Status', dataField: 'status', width: 150 },
+                  { text: 'Rferentienummer', dataField: 'ref', width: 150 },
+                  { text: 'Klant', dataField: 'klant', width: 150 },
+                  { text: 'Medewerker', dataField: 'med', width: 150 },
+                  { text: 'Datum', dataField: 'date', width: 150 }
                 ]
             });
         });
@@ -121,31 +128,14 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 </head>
 <body class='default'>
 <form method=post action=onderdeel.jsp name=div0>
-<h1>Componenten</h1>
+<h1>Projecten</h1>
 <table>
-<tr><td>Project:</td>
-<td><input name=projectNaam maxlength=6 type=text  readonly maxlength=30 size=30 value='Tata S-BOCH OXYii' style="background-color:Lavender; color:black;"></td></tr>
-<tr><td>Status:</td> 
-			<td>
-			<select style="width:242px";>
-		  	  <option value="0">Gecalculeerd</option>
-			  <option value="1">Geaccepteerd</option>
-			  <option value="2">Geweigerd</option>
-			  <option value="3">Geannuleerd</option>
-			</select>
-		</td></tr>
-     	<tr><td>Referentienummer:</td><td><input name=referentienummer type=text   maxlength=30 size=30 value='C-4483' style="background-color:Lavender; color:black;"></td></tr>
-	    <tr><td>Klant:</td><td><input name=projectNaam type=text  readonly maxlength=30 size=30 value='Tata Steel' style="background-color:Lavender; color:black;"></td></tr>
-	    <tr><td>Medewerker:</td><td><input name=medewekerNaam type=text  readonly maxlength=30 size=30 value='<%=user.getMedewerkerNaam()%>' style="background-color:Lavender; color:black;"></td></tr>
-	    <tr><td>Datum:</td><td><input name=datum  type=text  readonly maxlength=30 size=30 value='<%=timeStamp%>' style="background-color:Lavender; color:black;"></td></tr>
-	    <tr><td><br><br><br><br></td></tr>
-	    
-</table>
 
+</table>
     <div id="treeGrid">
     </div>
-   <table><tr><td><br><button type="button" onclick="location.href='http://localhost:8080/Megacon2/newComponent.jsp';" class=button4>Voeg component</button></td></tr></table> 
-    
+    <!-- <tr><td><br><br><br><br><input type=submit value="Voeg onderdeel" class=button4></td>
+    <button type="button" onclick="location.href='http://localhost:8080/Megacon2/newComponent.jsp';" class=button4>Voeg component</button></tr> -->
     </form>
 </body>
 </html>
