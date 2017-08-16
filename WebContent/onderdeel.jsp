@@ -154,10 +154,10 @@ $(document).ready(function(){
 						</div>
 						<br> 
 						<div id="dimensie" style="width: 700px;">
-						Aantal&nbsp;<input name=A type=number min="1" style="width:30px;" maxlength=3 value='1'>
-						Dikte&nbsp;<input name=D type=number min="0" style="width:70px;" maxlength=20 value=''>mm 
-						Breedte&nbsp;<input name=B type=number min="0" style="width:70px;" maxlength=20 value=''>mm 
-						Lengte&nbsp;<input name=L type=number min="0" style="width:70px;" maxlength=20 value=''>mm 
+						Aantal&nbsp;<input name=A type=text  style="width:30px;"  maxlength=3 value='1'>
+						Dikte&nbsp;<input name=D type=number readonly min="0" style="width:70px;background-color:Lavender; color:black;" maxlength=20 value=''>mm 
+						Breedte&nbsp;<input name=B type=number readonly min="0" style="width:70px;background-color:Lavender; color:black;" maxlength=20 value=''>mm 
+						Lengte&nbsp;<input name=L type=number readonly min="0" style="width:70px;background-color:Lavender; color:black;" maxlength=20 value=''>mm 
 						<br>
 								<br> 
 						<div id=pos>

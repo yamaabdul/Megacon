@@ -194,7 +194,7 @@ function myFunction() {
  							<tr>
  							<td>Verf opplervlakte:</td><td><input type=text name=verfopp readonly maxlength=10 value='43,7' style="background-color:Lavender; color:black;">m²</td>
  							</tr>
-							<tr><td> bw (100):</td> <td><input type=text name=bw maxlength=10 value='1,7'></td>uren</tr>
+							<tr><td> bw (100):</td> <td><input type=text name=bw maxlength=10 value='1,7'>uren</td></tr>
 							<tr>
  							<td>br (110):</td><td><input type=text name=br maxlength=10 value='1,7'>uren</td>
  							</tr>
