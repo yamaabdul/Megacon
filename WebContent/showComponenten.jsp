@@ -108,6 +108,8 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
             {
                 width: 360,
                 source: dataAdapter,
+                selectionmode:'singlerow',
+                editable: true,
              
                 columns: [
 				  { text: 'ID', dataField: 'ID', width: 50, cellsrenderer: linkrenderer },

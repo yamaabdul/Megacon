@@ -46,6 +46,7 @@ animatedcollapse.addDiv('dimensie', 'fade=1,speed=200,hide=1')
 animatedcollapse.addDiv('standard_dimensie', 'fade=1,speed=200,hide=1') 
 animatedcollapse.addDiv('romp', 'fade=1,speed=200,hide=1') 
 animatedcollapse.addDiv('materiaalsoort', 'fade=1,speed=200,hide=1') 
+animatedcollapse.addDiv('np', 'fade=1,speed=200,hide=1')
 
 animatedcollapse.ontoggle=function($, divobj, state){ //fires each time a DIV is expanded/contracted 
 	//$: Access to jQuery 
@@ -64,10 +65,12 @@ function Aan(){
 	animatedcollapse.show('dimensie');
 	animatedcollapse.show('standard_dimensie');
 	animatedcollapse.show('pos');
+	//animatedcollapse.show('np');
 	
 }
 
 function myFunction() {
+	initButton();
     var x = document.getElementById('div0');
     if (x.style.display === 'none') {
         x.style.display = 'block';
@@ -76,9 +79,14 @@ function myFunction() {
     }
 }
 
-function initStandardonderdeel(){
+function initButton(){
 //document.div0.romp.checked = true;
-
+    var x = document.getElementById('np');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
 }
 
 
@@ -118,7 +126,7 @@ $(document).ready(function(){
 	    <tr>
 				<td></td><br>
 				<td>
-					 <a class="two" href="#" rel="toggle[div0]"><button onclick="myFunction()">Kiezen Standaard onderdeel </button></a>
+					 <a class="two" href="#" rel="toggle[div0]"><button onclick="myFunction()">Kies Standaard onderdeel </button></a>
 					<div id="div0">
 						<div class="centerwindow2"> <b>Onderdeel</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<select name=standaardond onchange="Aan();">
@@ -175,7 +183,7 @@ $(document).ready(function(){
 						</div>
 						</td>
  						</tr>
-						<tr><td></td><td><br><br><br><br><br><br><input type=submit value=Toevoegen class=button> <input type=reset class=button></td></tr>
+						<tr><td></td><td><br><br><br><br><br><br><div id=np><input type=submit value=Toevoegen class=button> <input type=reset class=button></div></td></tr>
  						
 
 </table>

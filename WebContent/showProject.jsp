@@ -114,7 +114,6 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
                 source: dataAdapter,
                 filterable: true,
                 filterMode: 'advanced',
-                pageable: true,
                 sortable: true,
              
                 columns: [

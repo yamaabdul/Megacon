@@ -103,7 +103,7 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
                };
                
                var linkrenderer = function (row, column, value) {
-               return "<a href='showMedewerkers.jsp'>" + value + "</a>";
+               return "<a href='showCustomers.jsp'>" + value + "</a>";
            	};
                var dataAdapter = new $.jqx.dataAdapter(source);
                // create Tree Grid
