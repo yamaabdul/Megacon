@@ -118,7 +118,7 @@ $(document).ready(function(){
 	    <tr>
 				<td></td><br>
 				<td>
-					 <a class="two" href="#" rel="toggle[div0]"><button onclick="myFunction()">Standaard onderdeel configureren</button></a>
+					 <a class="two" href="#" rel="toggle[div0]"><button onclick="myFunction()">Kiezen Standaard onderdeel </button></a>
 					<div id="div0">
 						<div class="centerwindow2"> <b>Onderdeel</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<select name=standaardond onchange="Aan();">
@@ -136,9 +136,9 @@ $(document).ready(function(){
 							
 						<div id="standard_dimensie" style="width: 700px;">
 						Aantal&nbsp;<input name=AH type=number min="1" required style="width:30px;" maxlength=10 value='1'>
-						Hoog/dia&nbsp;<input name=SH type=number min="0" required style="width:70px;" maxlength=20 value=''>
-						Dikte&nbsp;<input name=SD type=number min="0" required style="width:70px;" maxlength=20 value=''>
-						Lengte&nbsp;<input name=SL type=number min="0" required style="width:70px;" maxlength=20 value=''>
+						Hoog/dia&nbsp;<input name=SH type=number min="0" required style="width:70px;" maxlength=20 value=''>mm 
+						Dikte&nbsp;<input name=SD type=number min="0" required style="width:70px;" maxlength=20 value=''>mm 
+						Lengte&nbsp;<input name=SL type=number min="0" required style="width:70px;" maxlength=20 value=''>mm 
 						</div> 
 							<br><br> 
 						<div id=romp><b>Sub onderdeel</b>&nbsp;&nbsp;<input name=sub type=text style="width:115px;" maxlength=15 readonly value='Plaat romp'>
@@ -147,9 +147,9 @@ $(document).ready(function(){
 						<br> 
 						<div id="dimensie" style="width: 700px;">
 						Aantal&nbsp;<input name=A type=number min="1" style="width:30px;" maxlength=3 value='1'>
-						Dikte&nbsp;<input name=D type=number min="0" style="width:70px;" maxlength=20 value=''>
-						Breedte&nbsp;<input name=B type=number min="0" style="width:70px;" maxlength=20 value=''>
-						Lengte&nbsp;<input name=L type=number min="0" style="width:70px;" maxlength=20 value=''>
+						Dikte&nbsp;<input name=D type=number min="0" style="width:70px;" maxlength=20 value=''>mm 
+						Breedte&nbsp;<input name=B type=number min="0" style="width:70px;" maxlength=20 value=''>mm 
+						Lengte&nbsp;<input name=L type=number min="0" style="width:70px;" maxlength=20 value=''>mm 
 						<br>
 								<br> 
 						<div id=pos>

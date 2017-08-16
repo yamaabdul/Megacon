@@ -115,7 +115,6 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
                    source: dataAdapter,
                    filterable: true,
                    filterMode: 'advanced',
-                   pageable: true,
                    sortable: true,
                 
                    columns: [
@@ -132,7 +131,7 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 </head>
 <body class='default'>
 <form method=post action=onderdeel.jsp name=div0>
-<h1>Projectenoverzicht</h1>
+<h1>Medewerker overzicht</h1>
 <table>
 
 </table>

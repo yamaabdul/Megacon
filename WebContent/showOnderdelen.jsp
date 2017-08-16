@@ -208,7 +208,7 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 </head>
 <body class='default'>
 <form method=post action=onderdeel.jsp name=div0>
-<h1>Onderdelen/Subonderdelen</h1>
+<h1>Detail overzicht van onderdelen</h1>
 <table>
 <tr><td>Project:</td>
 <td><input name=projectNaam maxlength=6 type=text  readonly maxlength=30 size=30 value='Tata S-BOCH OXYii' style="background-color:Lavender; color:black;"></td></tr>
@@ -232,8 +232,8 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 </table>
     <div id="treeGrid">
     </div>
-    <tr><td><br><br><br><br><input type=submit value="Voeg onderdeel" class=button4></td></tr>
-    <tr><td><button type="button" onclick="location.href='http://localhost:8080/Megacon2/showComponent.jsp';" class=button4>Opslaan</button></td></tr>
+    <tr><td><br><br><br><br><input type=submit value="Toevoegen onderdeel" class=button4></td></tr>
+    <tr><td><button type="button" onclick="location.href='showComponent.jsp';" class=button4>Opslaan</button></td></tr>
     </form>
 </body>
 </html>

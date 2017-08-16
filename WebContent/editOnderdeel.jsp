@@ -91,7 +91,7 @@ function initStandardonderdeel(){
 }
 //add new input type
 function add_fields() {
-    document.getElementById('wrapper').innerHTML += '<span><tr><td>Lassen:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input type="text"></td></tr></span><br>';
+    document.getElementById('wrapper').innerHTML += '<span><tr><td>Lassen:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input type="text"></td>uren</tr></span><br>';
 }
 
 function myFunction() {
@@ -144,9 +144,9 @@ function myFunction() {
 							
 						<div id="standard_dimensie" style="width: 700px;">
 						Aantal&nbsp;<input name=AH type=number min="1" style="width:30px;" maxlength=10 value='1' >
-						Hoog/dia&nbsp;<input name=SH type=number min="0" style="width:70px;" maxlength=20 value='3024'>
-						Dikte&nbsp;<input name=SD type=number min="0" style="width:70px;" maxlength=20 value='12'>
-						Lengte&nbsp;<input name=SL type=number min="0" style="width:70px;" maxlength=20 value='2300'>
+						Hoog/dia&nbsp;<input name=SH type=number min="0" style="width:70px;" maxlength=20 value='3024'>mm  
+						Dikte&nbsp;<input name=SD type=number min="0" style="width:70px;" maxlength=20 value='12'>mm  
+						Lengte&nbsp;<input name=SL type=number min="0" style="width:70px;" maxlength=20 value='2300'>mm 
 						</div> 
 							<br><br> 
 						<div id=romp><b>Sub onderdeel</b>&nbsp;&nbsp;<input name=sub type=text style="width:115px;background-color:Lavender; color:black;" maxlength=15 readonly value='Plaat romp'>
@@ -154,9 +154,9 @@ function myFunction() {
 						<br>
 						<div id="dimensie" style="width: 700px;">
 						Aantal&nbsp;<input name=A type=number min="1" style="width:30px;" maxlength=3 value='1'>
-						Dikte&nbsp;<input name=D type=number min="0" style="width:70px;" maxlength=20 value='12'>
-						Breedte&nbsp;<input name=B type=number min="0" style="width:70px;" maxlength=20 value='2320'>
-						Lengte&nbsp;<input name=L type=number min="0" style="width:70px;" maxlength=20 value='9550'>
+						Dikte&nbsp;<input name=D type=number min="0" style="width:70px;" maxlength=20 value='12'>mm 
+						Breedte&nbsp;<input name=B type=number min="0" style="width:70px;" maxlength=20 value='2320'>mm 
+						Lengte&nbsp;<input name=L type=number min="0" style="width:70px;" maxlength=20 value='9550'>mm 
 						</div>
 						<br>
 								<br> 
@@ -186,23 +186,23 @@ function myFunction() {
 							<table>
 						
 							<tr>
- 							<td>Bruto gewicht:</td><td><input type=text name=brutogewicht readonly maxlength=10 value='2127' style="background-color:Lavender; color:black;"></td>
+ 							<td>Bruto gewicht:</td><td><input type=text name=brutogewicht readonly maxlength=10 value='2127' style="background-color:Lavender; color:black;">Kg</td>
  							</tr>
  							<tr>
- 							<td>Netto gewicht:</td><td><input type=text name=nettogewicht readonly maxlength=10 value='2089,03'style="background-color:Lavender; color:black;"></td>
+ 							<td>Netto gewicht:</td><td><input type=text name=nettogewicht readonly maxlength=10 value='2089,03'style="background-color:Lavender; color:black;">Kg</td>
  							</tr>
  							<tr>
- 							<td>Verf opplervlakte:</td><td><input type=text name=verfopp readonly maxlength=10 value='43,7' style="background-color:Lavender; color:black;"></td>
+ 							<td>Verf opplervlakte:</td><td><input type=text name=verfopp readonly maxlength=10 value='43,7' style="background-color:Lavender; color:black;">m²</td>
  							</tr>
-							<tr><td> bw (100):</td> <td><input type=text name=bw maxlength=10 value='1,7'></td></tr>
+							<tr><td> bw (100):</td> <td><input type=text name=bw maxlength=10 value='1,7'></td>uren</tr>
 							<tr>
- 							<td>br (110):</td><td><input type=text name=br maxlength=10 value='1,7'></td>
+ 							<td>br (110):</td><td><input type=text name=br maxlength=10 value='1,7'>uren</td>
  							</tr>
 							<tr>
- 							<td>wals (120):</td><td><input type=text name=wals maxlength=10 value='3,2'></td>
+ 							<td>wals (120):</td><td><input type=text name=wals maxlength=10 value='3,2'>uren</td>
  							</tr>
  							<tr>
- 							<td>assemb (100):</td><td><input type=text name=assemb maxlength=10  value='13,1'></td>
+ 							<td>assemb (100):</td><td><input type=text name=assemb maxlength=10  value='13,1'>uren</td>
  							</tr>
 <!--  							<tr>
  							<td>lassen (200):</td><td><input type=text name=lassen maxlength=10  value=''></td>
@@ -219,7 +219,7 @@ function myFunction() {
  						
 
  							<tr>
- 							<td>proj./wvb (420):</td><td><input type=text name=projectwvb maxlength=10 value='1,4'></td>
+ 							<td>proj./wvb (420):</td><td><input type=text name=projectwvb maxlength=10 value='1,4'>uren</td>
  							</tr>
  							
  					<!-- <tr>
@@ -265,7 +265,7 @@ function myFunction() {
  							<td>las hrs:</td><td><input type=text name=hrs2 maxlength=10 value=''></td>
  							</tr> -->
  							<tr>
- 							<td>tot. uren:</td><td><input type=text name=toturen maxlength=10 value='21,1'></td>
+ 							<td>tot. uren:</td><td><input type=text name=toturen maxlength=10 value='21,1'>uren</td>
  							</tr>
  							<tr><td>Voeg een bewerking toe:</td> 
 							<td>

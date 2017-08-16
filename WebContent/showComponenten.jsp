@@ -43,7 +43,7 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 	font-size:14px;
 	font-weight:400;
 	height:30px;
-	width:150px;
+	width:180px;
 	text-decoration:none;
 	text-align:center;
 	margin-left: auto;
@@ -121,7 +121,7 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 </head>
 <body class='default'>
 <form method=post action=showProject.jsp name=div0>
-<h1>Componenten</h1>
+<h1>Overzicht Componenten</h1>
 <table>
 <tr><td>Project:</td>
 <td><input name=projectNaam maxlength=6 type=text  readonly maxlength=30 size=30 value='Tata S-BOCH OXYii' style="background-color:Lavender; color:black;"></td></tr>
@@ -145,7 +145,7 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
     <div id="treeGrid">
     </div>
    <table>
-   <tr><td><br><button type="button" onclick="location.href='http://localhost:8080/Megacon2/newComponent.jsp';" class=button4>Voeg component</button></td></tr>
+   <tr><td><br><button type="button" onclick="location.href='newComponent.jsp';" class=button4>Toevoegen component</button></td></tr>
    <tr><td><input type=submit value="Opslaan" class=button4></td></tr>
    </table> 
     

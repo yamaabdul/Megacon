@@ -130,7 +130,7 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 </head>
 <body class='default'>
 <form method=post action=onderdeel.jsp name=div0>
-<h1>Projectenoverzicht</h1>
+<h1>Klant overzicht</h1>
 <table>
 
 </table>

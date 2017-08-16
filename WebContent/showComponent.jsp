@@ -198,7 +198,7 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
     <div id="treeGrid">
     </div>
     
-    <tr><td><br><br><br><button type="button" onclick="location.href='http://localhost:8080/Megacon2/editComponent.jsp';" class=button4>Bewerken component</button></td></tr>
+    <tr><td><br><br><br><button type="button" onclick="location.href='editComponent.jsp';" class=button4>Bewerken component</button></td></tr>
 	<tr><td><input type=submit value="Opslaan" class=button4></td></tr>
     </form>
 </body>
