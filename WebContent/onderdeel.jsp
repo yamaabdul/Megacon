@@ -114,6 +114,7 @@ $(document).ready(function(){
 	    <tr><td>Component:</td><td><input name=componentNaam type=text readonly maxlength=30 size=30 value='S-BOCHT' style="background-color:Lavender; color:black;"></td></tr>
 	    <tr><td>Tekeningnummer:</td><td><input name=tekeningnr type=text readonly maxlength=30 size=30 value='F82872' style="background-color:Lavender; color:black;"></td></tr>
 	    <tr><td>Aantal:</td><td><input name=aantal type=number min="1" style="background-color:Lavender; color:black; width:30px;" readonly maxlength=2 value='1'>
+	    </td></tr>
 	    <tr>
 				<td></td><br>
 				<td>

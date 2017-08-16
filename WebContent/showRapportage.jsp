@@ -26,6 +26,7 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 </head>
 <body>
 <form method=post action=RapportageServlet>
+<h1>Rapport</h1>
 <table>
 	    <tr><td>Project:</td><td><input name=projectNaam type=text  readonly maxlength=30 size=30 value='Tata S-BOCH OXYii'style="background-color:Lavender; color:black;"></td></tr>
 		<tr><td>Status:</td> 
@@ -145,7 +146,7 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
   <tr>
   	<td><b>06</b></td>
   	<td><b>UITBESTEDINGEN</b></td>
-    <td><b>AANTAL</b></td>
+    <td><b>AANTAL/UREN</b></td>
     <td><b>TARIEF</b></td>
     <td><b>EURO</b></td>
   </tr>
@@ -390,7 +391,7 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
  
   
 </table>
- <tr><td><br><br><br><br><input type=submit value=Opslaan class=button> <input type=reset class=button></td></tr>
+ <tr><td><br><br><br><br><button type="button" onclick="location.href='http://localhost:8080/Megacon2/showRapport.jsp';" class=button>Opslaan</button> <input type=reset class=button></td></tr>
 </form>
 </body>
 </html>

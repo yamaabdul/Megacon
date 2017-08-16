@@ -78,8 +78,8 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
     <script type="text/javascript">
         $(document).ready(function () {
             var employees = [{ "ID": "1", "Pos": "A", "Aant": "1", "Type": "Romp", "Hoog/dia": "3024" , "Dikte": "12", "Breedte": "", "Lengte": "2300", "Bruto.gew": "2127,0", "Netto.gew": "2089,3","verfopp": "21,9","prijs": "0,90" ,"unit": "Eur/kg" ,"euro": "1914,31","materiaal": "S355J2G3","cert": "3.1.B","bsg": "8,00" 
-            	,"bw": "1,7", "br": "1,7","wals": "3,2","assemb": "13,1", "lassen": "", "uml": "", "kotteren": "","dr": "", "proj": "", "tot": "21,0", "brm": "23,7", "brschuin": "", "zaag": "", "buur": "", "lascat": "", "las1": "", "lasmtr1": "", "inhd1": "", "lashr1": ""
-            		, "las2": "", "lasmtr2": "", "inhd2": "", "lashr2": "", "las3": "", "lasmtr3": "", "inhd3": "", "lashr3": "", "gaten": ""}, 
+            	,"bw": "1,7", "br": "1,7","wals": "3,2","assemb": "13,1", "lassen": "", "uml": "", "kotteren": "","dr": "", "proj": "", "tot": "21,0", "brm": "23,7", "brschuin": "", "zaag": "", "buur": "", "lascat": "3", "las1": "", "lasmtr1": "9,6", "inhd1": "", "lashr1": ""
+            		, "las2": "", "lasmtr2": "2,3", "inhd2": "", "lashr2": "", "las3": "", "lasmtr3": "", "inhd3": "", "lashr3": "", "gaten": ""}, 
            
                              { "ID": "2", "Pos": "A", "Aant": "1", "Type": "Plaat romp", "Hoog/dia": "" , "Dikte": "12", "Breedte": "2320", "Lengte": "9550", "Bruto.gew": "", "Netto.gew": "","verfopp": "","prijs": "" ,"unit": "Eur/kg" ,"euro": "","materiaal": "S355J2G3","cert": "3.1.B","bsg": "8,00"
                             	 ,"bw": "", "br": "","wals": "","assemb": "", "lassen": "", "uml": "", "kotteren": "","dr": "", "proj": "", "tot": "", "brm": "", "brschuin": "", "zaag": "", "buur": "", "lascat": "", "las1": "", "lasmtr1": "", "inhd1": "", "lashr1": ""
@@ -152,12 +152,14 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
             {
                 width: 3020,
                 source: dataAdapter,
+                selectionmode:'singlerow',
+                editable: true,
              
                 columns: [
 				  { text: 'ID', dataField: 'ID', width: 50, cellsrenderer: linkrenderer },
                   { text: 'Pos', dataField: 'Pos', width: 50 },
                   { text: 'Aant', dataField: 'Aant', width: 50 },
-                  { text: 'Type', dataField: 'Type', width: 100 },
+                  { text: 'Onderdeel/subonderdeel', dataField: 'Type', width: 100 },
                   { text: 'Hoog/dia', dataField: 'Hoog/dia', width: 70 },
                   { text: 'Dikte', dataField: 'Dikte', width: 50 },
                   { text: 'Breedte', dataField: 'Breedte', width: 60 },
@@ -206,17 +208,18 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 </head>
 <body class='default'>
 <form method=post action=onderdeel.jsp name=div0>
-<h1>Onderdelen</h1>
+<h1>Onderdelen/Subonderdelen</h1>
 <table>
 <tr><td>Project:</td>
 <td><input name=projectNaam maxlength=6 type=text  readonly maxlength=30 size=30 value='Tata S-BOCH OXYii' style="background-color:Lavender; color:black;"></td></tr>
 <tr><td>Status:</td> 
 			<td>
 			<select style="width:242px";>
-		  	  <option value="0">Gecalculeerd</option>
-			  <option value="1">Geaccepteerd</option>
-			  <option value="2">Geweigerd</option>
-			  <option value="3">Geannuleerd</option>
+			  <option value="0">Nieuw</option>
+		  	  <option value="1">Gecalculeerd</option>
+			  <option value="2">Geaccepteerd</option>
+			  <option value="3">Geweigerd</option>
+			  <option value="4">Geannuleerd</option>
 			</select>
 		</td></tr>
      	<tr><td>Referentienummer:</td><td><input name=referentienummer type=text   maxlength=30 size=30 value='C-4483' style="background-color:Lavender; color:black;"></td></tr>
@@ -230,6 +233,7 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
     <div id="treeGrid">
     </div>
     <tr><td><br><br><br><br><input type=submit value="Voeg onderdeel" class=button4></td></tr>
+    <tr><td><button type="button" onclick="location.href='http://localhost:8080/Megacon2/showComponent.jsp';" class=button4>Opslaan</button></td></tr>
     </form>
 </body>
 </html>

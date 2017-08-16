@@ -8,13 +8,34 @@ $(document).ready(function(){
         $("p1").slideToggle();
     });
 });
+
+function add_fields() {
+    document.getElementById('wrapper').innerHTML += '<tr><td>Lassen:&nbsp;</td><input type="text"></tr><br>';
+}
 </script>
 </head>
 <body>
 
-<p>Toggle slideUp() and slideDown()</p>
-<p1>This is a paragraph.</p1>
 
+<tr><td>Toggle slideUp() and slideDown()</td>
+    					 
+<td>This is a paragraph.</td>
+</tr>
+
+<div class="content" id="wrapper"> 
+    						</div>
+
+							
+    						<tr><td>Voeg een bewerking toe:</td> 
+							<td>
+							<select name=bewerking onchange="add_fields();"style="width:175px";>
+			 			    <option value="0">--maak keuze--</option>
+			  				<option value="1">lassen</option>
+			  				<option value="2">UM-las</option>
+			  				<option value="3">kottereen</option>
+			  				<option value="4">dr/frezen</option>
+							</select>
+							</td></tr> 
 
 </body>
 </html>

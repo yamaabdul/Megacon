@@ -51,8 +51,8 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 	    <tr><td>Naam component:</td><td><input name=componentNaam type=text required maxlength=30 size=30 value='S-BOCHT'></td></tr>
 	    <tr><td>Tekeningnummer:</td><td><input name=tekeningnr type=text required maxlength=30 size=30 value='F82872'></td></tr>
 	    <tr><td>Aantal:</td><td><input name=aantal type=number min="1" style="width:30px;"  maxlength=10 value='1'>
-		<tr><td></td><td><br><br><br><br><br><br><input type=submit value=Toevoeging class=button>
-		<button type="button" onclick="location.href='http://localhost:8080/Megacon2/showComponenten.jsp';" class=button>Verwijderen</button> <input type=reset class=button></td></tr>
+		<tr><td></td><td><br><br><br>
+		<button type="button" onclick="location.href='http://localhost:8080/Megacon2/showComponenten.jsp';" class=button>Opslaan</button> <input type=reset class=button></td></tr>
  						
 
 </table>

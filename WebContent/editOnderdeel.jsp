@@ -109,7 +109,7 @@ function myFunction() {
 <body>
   <h1>Onderdeel</h1><p><br><br>
 	    <form method=post action=OnderdeelServlet name=div0>
-	    <table border="1">
+	    <table>
 	    <tr><td></td><td><input name=onderdeel_id type=text hidden maxlength=30 size=30 value='1'></td></tr>
 	  <tr><td>Project:</td><td><input name=projectNaam type=text  readonly maxlength=30 size=30 value='Tata S-BOCH OXYii' style="background-color:Lavender; color:black;"></td></tr>
 		<tr><td>Status:</td> 
@@ -128,12 +128,12 @@ function myFunction() {
 	    <tr><td>Datum:</td><td><input name=datum type=text  readonly maxlength=30 size=30 value='<%=timeStamp%>' style="background-color:Lavender; color:black;"><br></td></tr>
 	    <tr><td>Component:</td><td><input name=componentNaam type=text readonly maxlength=30 size=30 value='S-BOCHT' style="background-color:Lavender; color:black;"></td></tr>
 	    <tr><td>Tekeningnummer:</td><td><input name=tekeningnr type=text readonly maxlength=30 size=30 value='F82872' style="background-color:Lavender; color:black;"></td></tr>
-	    <tr><td>Aantal:</td><td><input name=aantal type=number min="1" style="background-color:Lavender; color:black; width:30px;" readonly maxlength=2 value='1'></td></tr>
-	   
+	    <tr><td>Aantal:</td><td><input name=aantal type=number min="1" style="background-color:Lavender; color:black; width:30px;" readonly maxlength=2 value='1'></td> <td></td></tr>
+	   <tr><td></td><td><a class="two" href="#" rel="toggle[div0]"><button onclick="myFunction()">Show onderdeel</button></a></td><td><h3><%=brg%></h3></td></tr>
 	    <tr>
 				<td></td>
 				<td>
-					 <a class="two" href="#" rel="toggle[div0]"><button onclick="myFunction()">Show onderdeel</button></a>
+					 
 					<div id=div0>
 						<div class="centerwindow2"> <b>Onderdeel</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<select name=standaardond onclick="Aan();" style="background-color:Lavender; color:black;">
@@ -184,18 +184,7 @@ function myFunction() {
 						<div class="centerwindow2">
 						<div id=brgegevens style="width: 370px;" >
 							<table>
-							 <tr><td>Voeg een bewerking toe:</td> 
-							<td>
-							<select name=bewerking onchange="add_fields();"style="width:175px";>
-			 			    <option value="0">--maak keuze--</option>
-			  				<option value="1">lassen</option>
-			  				<option value="2">UM-las</option>
-			  				<option value="3">kottereen</option>
-			  				<option value="4">dr/frezen</option>
-							</select>
-							</td></tr> 
-							<div class="content" id="wrapper"> 
-    						</div>
+						
 							<tr>
  							<td>Bruto gewicht:</td><td><input type=text name=brutogewicht readonly maxlength=10 value='2127' style="background-color:Lavender; color:black;"></td>
  							</tr>
@@ -210,7 +199,10 @@ function myFunction() {
  							<td>br (110):</td><td><input type=text name=br maxlength=10 value='1,7'></td>
  							</tr>
 							<tr>
- 							<td>wals (120):</td><td><input type=text name=wals maxlength=10 value='13,1'></td>
+ 							<td>wals (120):</td><td><input type=text name=wals maxlength=10 value='3,2'></td>
+ 							</tr>
+ 							<tr>
+ 							<td>assemb (100):</td><td><input type=text name=assemb maxlength=10  value='13,1'></td>
  							</tr>
 <!--  							<tr>
  							<td>lassen (200):</td><td><input type=text name=lassen maxlength=10  value=''></td>
@@ -229,13 +221,11 @@ function myFunction() {
  							<tr>
  							<td>proj./wvb (420):</td><td><input type=text name=projectwvb maxlength=10 value='1,4'></td>
  							</tr>
- 							<tr>
- 							<td>tot. uren:</td><td><input type=text name=toturen maxlength=10 value='21,0'></td>
- 							</tr>
- 							<tr>
+ 							
+ 					<!-- <tr>
  							<td>br. M1 recht:</td><td><input type=text name=brrecht maxlength=10 value='23,7'></td>
  							</tr>
- 			<!-- 				<tr>
+ 							<tr>
  							<td>br. M1 schuin:</td><td><input type=text name=brschuin maxlength=10 value=''></td>
  							</tr>
  							<tr>
@@ -248,15 +238,15 @@ function myFunction() {
  							<td>boor uur:</td><td><input type=text name=booruur maxlength=10 value=''></td>
  							</tr>
  							 <tr> -->
- 							<td>las cat:</td><td><input type=text name=lascat maxlength=10 value='3'></td>
+ 	<!-- 					<td>las cat:</td><td><input type=text name=lascat maxlength=10 value='3'></td>
  							</tr>
-<!--  							<tr>
+ 							<tr>
  							<td>las 1 type:</td><td><input type=text name=las1 maxlength=10 value=''></td>
  							</tr> -->
- 							<tr>
+<!--  							<tr>
  							<td>las mtr:</td><td><input type=text name=lasmtr1 maxlength=10 value='9,6'></td>
  							</tr>
-<!--  							<tr>
+ 							<tr>
  							<td>inh. cm3:</td><td><input type=text name=inh1 maxlength=10 value=''></td>
  							</tr>
  							<tr>
@@ -265,31 +255,19 @@ function myFunction() {
  							<tr>
  							<td>las 2 type:</td><td><input type=text name=hrs2 maxlength=10 value=''></td>
  							</tr> -->
- 							<tr>
+ <!--  							<tr>
  							<td>las mtr:</td><td><input type=text name=las2 maxlength=10 value='2,3'></td>
  							</tr>
-<!--  							<tr>
+							<tr>
  							<td>inh. cm3:</td><td><input type=text name=inh2 maxlength=10 value=''></td>
  							</tr>
  							<tr>
  							<td>las hrs:</td><td><input type=text name=hrs2 maxlength=10 value=''></td>
  							</tr> -->
  							<tr>
-							<td>Notitie:</td>
-							<td><textarea class=txt rows=3 style="width:168px;" name=notitie></textarea></td>
-							</tr>
-							</table> 
-						</div> </div></div>
-						<br><br><br><br><br></td> 
-						<tr><td></td> <td><h3><%=brg%></h3></td></tr>
-						<tr>
-						<td></td><td>
-					    <a class="two" href="#" rel="toggle[div1]"><span id=wgn ></span></a>
-					    <div id=div1>
-						<div class="centerwindow2">
-						<div id=brgegevens style="width: 370px;" >
-							<table>
-							 <tr><td>Voeg een bewerking toe:</td> 
+ 							<td>tot. uren:</td><td><input type=text name=toturen maxlength=10 value='21,1'></td>
+ 							</tr>
+ 							<tr><td>Voeg een bewerking toe:</td> 
 							<td>
 							<select name=bewerking onchange="add_fields();"style="width:175px";>
 			 			    <option value="0">--maak keuze--</option>
@@ -298,99 +276,20 @@ function myFunction() {
 			  				<option value="3">kottereen</option>
 			  				<option value="4">dr/frezen</option>
 							</select>
-							</td></tr> 
-							<div class="content" id="wrapper"> 
-    						</div>
-							<tr>
- 							<td>Bruto gewicht:</td><td><input type=text name=brutogewicht readonly maxlength=10 value='2127' style="background-color:Lavender; color:black;"></td>
- 							</tr>
- 							<tr>
- 							<td>Netto gewicht:</td><td><input type=text name=nettogewicht readonly maxlength=10 value='2089,03'style="background-color:Lavender; color:black;"></td>
- 							</tr>
- 							<tr>
- 							<td>Verf opplervlakte:</td><td><input type=text name=verfopp readonly maxlength=10 value='43,7' style="background-color:Lavender; color:black;"></td>
- 							</tr>
-							<tr><td> bw (100):</td> <td><input type=text name=bw maxlength=10 value='1,7'></td></tr>
-							<tr>
- 							<td>br (110):</td><td><input type=text name=br maxlength=10 value='1,7'></td>
- 							</tr>
-							<tr>
- 							<td>wals (120):</td><td><input type=text name=wals maxlength=10 value='13,1'></td>
- 							</tr>
-<!--  							<tr>
- 							<td>lassen (200):</td><td><input type=text name=lassen maxlength=10  value=''></td>
- 							</tr>
- 							<tr>
- 							<td>UM-las (210):</td><td><input type=text name=umlas maxlength=10  value=''></td>
- 							</tr>
- 							<tr>
- 							<td>kotteren (300):</td><td><input type=text name=kotteren maxlength=10  value=''></td>
- 							</tr>
- 							<tr>
- 							<td>dr/frezen (310):</td><td><input type=text name=drfrezen maxlength=10 value=''></td>
- 							</tr> -->
- 						
-
- 							<tr>
- 							<td>proj./wvb (420):</td><td><input type=text name=projectwvb maxlength=10 value='1,4'></td>
- 							</tr>
- 							<tr>
- 							<td>tot. uren:</td><td><input type=text name=toturen maxlength=10 value='21,0'></td>
- 							</tr>
- 							<tr>
- 							<td>br. M1 recht:</td><td><input type=text name=brrecht maxlength=10 value='23,7'></td>
- 							</tr>
- 			<!-- 				<tr>
- 							<td>br. M1 schuin:</td><td><input type=text name=brschuin maxlength=10 value=''></td>
- 							</tr>
- 							<tr>
- 							<td>zaaguur:</td><td><input type=text name=zaaguur maxlength=10 value=''></td>
- 							</tr>
- 							<tr>
- 							<td>boor marger:</td><td><input type=text name=boorm maxlength=10 value=''></td>
- 							</tr>
- 							<tr>
- 							<td>boor uur:</td><td><input type=text name=booruur maxlength=10 value=''></td>
- 							</tr>
- 							 <tr> -->
- 							<td>las cat:</td><td><input type=text name=lascat maxlength=10 value='3'></td>
- 							</tr>
-<!--  							<tr>
- 							<td>las 1 type:</td><td><input type=text name=las1 maxlength=10 value=''></td>
- 							</tr> -->
- 							<tr>
- 							<td>las mtr:</td><td><input type=text name=lasmtr1 maxlength=10 value='9,6'></td>
- 							</tr>
-<!--  							<tr>
- 							<td>inh. cm3:</td><td><input type=text name=inh1 maxlength=10 value=''></td>
- 							</tr>
- 							<tr>
- 							<td>las hrs:</td><td><input type=text name=hrs1 maxlength=10 value=''></td>
- 							</tr>
- 							<tr>
- 							<td>las 2 type:</td><td><input type=text name=hrs2 maxlength=10 value=''></td>
- 							</tr> -->
- 							<tr>
- 							<td>las mtr:</td><td><input type=text name=las2 maxlength=10 value='2,3'></td>
- 							</tr>
-<!--  							<tr>
- 							<td>inh. cm3:</td><td><input type=text name=inh2 maxlength=10 value=''></td>
- 							</tr>
- 							<tr>
- 							<td>las hrs:</td><td><input type=text name=hrs2 maxlength=10 value=''></td>
- 							</tr> -->
+							</td></tr>
  							<tr>
 							<td>Notitie:</td>
 							<td><textarea class=txt rows=3 style="width:168px;" name=notitie></textarea></td>
 							</tr>
-							</table> 
-						</div> </div></div>
+							
+							</table><div class="content" id="wrapper"> </div> 
+						</div> </div></div> 
 						<br><br><br><br><br></td> 
- 						</tr>
+						
  						 	
 
 							
- 		<tr><td></td><td><br><input type=submit value=Toevoegen class=button> <input type=reset class=button></td></tr>
+ 		<tr><td></td><td><br><input type=submit value=Opslaan class=button> <input type=reset class=button></td></tr>
 </table>
 </form>
 </body>

@@ -78,7 +78,7 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
     <script type="text/javascript">
         $(document).ready(function () {
             var employees = [{ "ID": "1", "Aant": "1", "Tekening": "F82872", "Component": "S-Bocht", "Uren": "14,05" , "Brut_gew": "2127", "Net_gew": "2089", "Ver_opp": "21,85", "Inkoop": "1914", "bw": "1,7","br": "1,7","wals": "3,18" ,"assemb": "21,41" ,"lassen": "","uml": "","kotteren": "","dr_frezen": "" 
-            	,"proj_wvb": "1,37", "tot_uren": "29,36","bw_kosten": "1615","co_kosten": "191400", "last_kosten": "", "uitbest": "", "tekening": "104","transport": "2089", "kostprijs": "197123", "winst": "19712", "sga": "9775", "prijs": "226611", "kg": "108,46", "inh": "", "mtr": "11,87"}];
+            	,"proj_wvb": "1,37", "tot_uren": "29,36","bw_kosten": "1615","co_kosten": "2185", "last_kosten": "", "uitbest": "", "tekening": "104","transport": "2089", "kostprijs": "7908", "winst": "791", "sga": "315", "prijs": "9014", "kg": "4,31", "inh": "", "mtr": "11,87"}];
                              
             // prepare the data
             var source =
@@ -124,15 +124,17 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
             };
            
             var linkrenderer = function (row, column, value) {
-                return "<a href='editOnderdeel.jsp'>" + value + "</a>";
+                return "<a href='showOnderdelen.jsp'>" + value + "</a>";
             	};
             	
             var dataAdapter = new $.jqx.dataAdapter(source);
             // create Tree Grid
             $("#treeGrid").jqxTreeGrid(
             {
-                width: 1220,
+                width: 2020,
                 source: dataAdapter,
+                selectionmode:'singlerow',
+                editable: true,
              
                 columns: [
 				  { text: 'ID', dataField: 'ID', width: 50 ,cellsrenderer: linkrenderer },
@@ -173,8 +175,8 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
     </script>
 </head>
 <body class='default'>
-<form method=post action=onderdeel.jsp name=div0>
-<h1>Component/ Onderdelen</h1>
+<form method=post action=showComponenten.jsp name=div0>
+<h1>Totaalblad</h1>
 <table>
 <tr><td>Project:</td>
 <td><input name=projectNaam maxlength=6 type=text  readonly maxlength=30 size=30 value='Tata S-BOCH OXYii' style="background-color:Lavender; color:black;"></td></tr>
@@ -191,15 +193,13 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 	    <tr><td>Klant:</td><td><input name=projectNaam type=text  readonly maxlength=30 size=30 value='Tata Steel' style="background-color:Lavender; color:black;"></td></tr>
 	    <tr><td>Medewerker:</td><td><input name=medewekerNaam type=text  readonly maxlength=30 size=30 value='<%=user.getMedewerkerNaam()%>' style="background-color:Lavender; color:black;"></td></tr>
 	    <tr><td>Datum:</td><td><input name=datum  type=text  readonly maxlength=30 size=30 value='<%=timeStamp%>' style="background-color:Lavender; color:black;"><br></td></tr>
-	    <tr><td>Component:</td><td><input name=componentNaam type=text readonly maxlength=30 size=30 value='S-BOCHT' style="background-color:Lavender; color:black;" ></td></tr>
-	    <tr><td>Tekeningnummer:</td><td><input name=tekeningnr type=text readonly maxlength=30 size=30 value='F82872' style="background-color:Lavender; color:black;"></td></tr>
- 		<tr><td>Aantal:</td><td><input name=aantal type=number min="1" style="background-color:Lavender; color:black; width:30px;" maxlength=2 value='1'></td></tr>
+	     <tr><td><br><br><br><br></td></tr>
 </table>
     <div id="treeGrid">
     </div>
-    <tr><td><br><br><br><input type=submit value="Voeg onderdeel" class=button4></td>
-    <tr><td><button type="button" onclick="location.href='http://localhost:8080/Megacon2/editComponent.jsp';" class=button4>Bewerking</button></td></tr>
-</tr>
+    
+    <tr><td><br><br><br><button type="button" onclick="location.href='http://localhost:8080/Megacon2/editComponent.jsp';" class=button4>Bewerken component</button></td></tr>
+	<tr><td><input type=submit value="Opslaan" class=button4></td></tr>
     </form>
 </body>
 </html>
