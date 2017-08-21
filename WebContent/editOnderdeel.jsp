@@ -95,6 +95,7 @@ function add_fields() {
 }
 
 function myFunction() {
+	Aan();
     var x = document.getElementById('div0');
     if (x.style.display === 'none') {
         x.style.display = 'block';
@@ -171,7 +172,7 @@ function myFunction() {
 						</select>
 						Unit<input name=mu type=text min="0"  style="width:60px;" maxlength=10 value='Euro/Kg'>
 						Soortelijk gewicht<input name=ms type=text  style="width:70px;" maxlength=10 value='8,00'>
-						Prijs per unit<input name=mp type=textreadonly style="width:70px;" maxlength=10 value='0,90'>
+						Prijs per unit<input name=mp type=textreadonly style="width:70px;" maxlength=10 value='1,10'>
 						Certificering<input name=mce type=text  style="width:70px;" maxlength=10 value='3.1 B'>
 						</div>	
 						</div>

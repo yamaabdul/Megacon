@@ -77,7 +77,7 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
     <script type="text/javascript" src="script/jqwidgets/jqwidgets/jqxtreegrid.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            var employees = [{ "ID": "1", "Pos": "A", "Aant": "1", "Type": "Romp", "Hoog/dia": "3024" , "Dikte": "12", "Breedte": "", "Lengte": "2300", "Bruto.gew": "2127,0", "Netto.gew": "2089,3","verfopp": "21,9","prijs": "0,90" ,"unit": "Eur/kg" ,"euro": "1914,31","materiaal": "S355J2G3","cert": "3.1.B","bsg": "8,00" 
+            var employees = [{ "ID": "1", "Pos": "A", "Aant": "1", "Type": "Romp", "Hoog/dia": "3024" , "Dikte": "12", "Breedte": "", "Lengte": "2300", "Bruto.gew": "2127,0", "Netto.gew": "2089,3","verfopp": "21,9","prijs": "1,10" ,"unit": "Eur/kg" ,"euro": "1914,31","materiaal": "S355J2G3","cert": "3.1.B","bsg": "8,00" 
             	,"bw": "1,7", "br": "1,7","wals": "3,2","assemb": "13,1", "lassen": "", "uml": "", "kotteren": "","dr": "", "proj": "", "tot": "21,0", "brm": "23,7", "brschuin": "", "zaag": "", "buur": "", "lascat": "3", "las1": "", "lasmtr1": "9,6", "inhd1": "", "lashr1": ""
             		, "las2": "", "lasmtr2": "2,3", "inhd2": "", "lashr2": "", "las3": "", "lasmtr3": "", "inhd3": "", "lashr3": "", "gaten": ""}, 
            

@@ -30,7 +30,7 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 <title>Nieuw Project</title>
 </head>
 <body>
-  <h1>Nieuw component toevoegen</h1><p><br><br>
+  <h1>Nieuw component</h1><p><br><br>
  <form method=post action=onderdeel.jsp name=div0>
 	   <table>
 	    <tr><td>Project:</td>
