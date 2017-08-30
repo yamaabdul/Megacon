@@ -82,7 +82,7 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
 	<script type="text/javascript" src="script/dialogboxscript.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-        	   var employees = [{ "ID": "2", "pr": "TATA VULINRICHTING", "status": "Geaccepteerd", "ref": "C-4520", "klant": "Tata Steel" , "med": "Yama", "date": "20-02-2017"}];
+        	   var employees = [{ "ID": "2", "pr": "TATA VULINRICHTING", "status": "Geaccepteerd", "ref": "C-4520", "klant": "Tata Steel" , "med": "Ruud van Schinkel", "date": "20-02-2017"}];
                                 
                // prepare the data
                var source =
