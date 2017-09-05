@@ -83,8 +83,12 @@ out.print(megacon.ui.ShowMenu.show(user.getAccess_level()));
     <script type="text/javascript">
         $(document).ready(function () {
         	   var employees = [{ "ID": "1", "pr": "M", "status": "Yama", "ref": "yama@lyrit.nl", "klant": "3" , "med": "Ja"},
-                                { "ID": "2", "pr": "M", "status": "Ruud van Schinkel", "ref": "ruud.vanschinkel@megacon.nl", "klant": "3" , "med": "Ja"},
-                                { "ID": "3", "pr": "M", "status": "Richard Verstrenge", "ref": "richard@lyrit.nl", "klant": "3" , "med": "Ja"}];
+                                { "ID": "2", "pr": "M", "status": "Ruud van Schinkel", "ref": "ruud.vanschinkel@megacon.nl", "klant": "2" , "med": "Ja"},
+                                { "ID": "3", "pr": "M", "status": "Richard Verstrenge", "ref": "richard@lyrit.nl", "klant": "3" , "med": "Ja"},
+                                { "ID": "4", "pr": "M", "status": "Mart Hester", "ref": "mart.hester@megacon.nl", "klant": "2" , "med": "Ja"},
+                                { "ID": "5", "pr": "M", "status": "Job Hester", "ref": "job.hester@megacon.nl", "klant": "2" , "med": "Ja"},
+                                { "ID": "6", "pr": "M", "status": "Andre Al", "ref": "andere.al@megacon.nl", "klant": "2" , "med": "Ja"},
+                                { "ID": "7", "pr": "M", "status": "Bram van Riet", "ref": "bram.van.riet@megacon.nl", "klant": "2" , "med": "Ja"}];
                                 
                // prepare the data
                var source =
