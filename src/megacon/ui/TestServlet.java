@@ -72,19 +72,23 @@ public class TestServlet extends HttpServlet {
         
         String STRsoortelikgewicht = request.getParameter("soortelijkgewicht");
         BigDecimal soortgewicht = StringToBigDecimal(STRsoortelikgewicht);
+        //bruto gewicht
+        BigDecimal brutoGW= calculateBrutoGewicht(aantal,dikte, breedte, lengte, soortgewicht);
+        //netto gewicht
+        BigDecimal nettoGW= new BigDecimal("0.98125");
+        BigDecimal nettoGewicht = brutoGW.multiply(nettoGW).setScale(2, RoundingMode.CEILING);
         
-        BigDecimal  bruto= calculateBrutoGewicht(aantal,dikte, breedte, lengte, soortgewicht);
-        BigDecimal net= new BigDecimal("0.98125");
-        BigDecimal nettoGewciht = bruto.multiply(net).setScale(2, RoundingMode.CEILING);
-        
-		System.out.println("standaardonderdeel id: " + standaardond);
+        BigDecimal verfOpp = calculateVerfoppervlak(aantal, dikte, breedte, lengte, brutoGW, nettoGewicht);
+		
+        System.out.println("standaardonderdeel id: " + standaardond);
 		System.out.println("Aantal : " + aantal);
 		System.out.println("dikte : " + dikte);
 		System.out.println("breedte : " + breedte);
 		System.out.println("lengte : " + lengte);
 		System.out.println("soortelikgewicht : " + soortgewicht);
-		System.out.println("bruto : " + bruto);
-		System.out.println("nettoGewciht : " + nettoGewciht);
+		System.out.println("bruto : " + brutoGW);
+		System.out.println("nettoGewciht : " + nettoGewicht);
+		System.out.println("verfOpp : " + verfOpp);
 	}
 	//convert input String to BigDecimal 
 	private BigDecimal StringToBigDecimal(String input ){
@@ -105,13 +109,27 @@ public class TestServlet extends HttpServlet {
 	}
 	
 	//calculate brutto gewicht 
-    public BigDecimal calculateBrutoGewicht(int aantal, int dikte, int breedte, int lengte, BigDecimal brutoSG)
+	private BigDecimal calculateBrutoGewicht(int aantal, int dikte, int breedte, int lengte, BigDecimal brutoSG)
     {
     	BigDecimal totalCost= BigDecimal.ZERO;;
     	BigDecimal decimal= new BigDecimal("0.000001");
     	BigDecimal itemCost  = brutoSG.multiply(new BigDecimal(aantal)).multiply(new BigDecimal(dikte)).multiply(new BigDecimal(breedte)).multiply(new BigDecimal(lengte)).multiply(decimal);
-    	totalCost = totalCost.add(itemCost).setScale(2, RoundingMode.CEILING);
+    	totalCost = totalCost.add(itemCost).setScale(2, RoundingMode.HALF_UP );
         return totalCost;
     }
-
+	
+    //calculate verfoppervlak 
+    //((aantal*(2*dikte*(breedte+lengte)+2*breedte*lengte)*0,000001)/(brutogewicht/nettogewicht))   (.divide((brutoGW), 2, RoundingMode.HALF_UP)
+	private BigDecimal calculateVerfoppervlak(int aantal, int dikte, int breedte, int lengte, BigDecimal brutoGW, BigDecimal nettoGW)
+    {
+    	BigDecimal totalCost= BigDecimal.ZERO;;
+    	BigDecimal decimal= new BigDecimal("0.000001");
+    	BigDecimal decimal2= new BigDecimal("2");
+    	BigDecimal brutoNetto = (brutoGW).divide(nettoGW , 4, RoundingMode.CEILING);
+    	//					   (	aantal					x	 (	2			x				dikte			x    (				breedte 	+					lengte )+   2				x                    breedte   x   					lengte        x     0.000001
+    	BigDecimal itemCost  = ((new BigDecimal(aantal)).multiply((decimal2).multiply(new BigDecimal(dikte)).multiply((new BigDecimal(breedte)).add(new BigDecimal(lengte))).add((decimal2).multiply(new BigDecimal(breedte)).multiply(new BigDecimal(lengte))).multiply(decimal))).divide(brutoNetto, 4, RoundingMode.CEILING);
+    	totalCost = totalCost.add(itemCost);
+    	
+        return totalCost;
+    }
 }
